@@ -4,9 +4,14 @@ import React from "react";
 
 function DateSection() {
   return (
-    <section className="w-full px-4 sm:px-8 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-10 bg-[var(--color-bg)]">
-      {/* LEFT SIDE TEXT */}
-      <div className="space-y-4 text-[var(--color-text)] font-medium text-4xl md:text-6xl">
+    <section
+      className="w-full px-4 sm:px-8 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-10"
+      style={{ backgroundColor: "var(--color-bg)" }}
+    >
+      <div
+        className="space-y-4 font-medium text-4xl md:text-6xl"
+        style={{ color: "var(--color-text)" }}
+      >
         <p className="flex items-center gap-2">
           2 Days
           <img
@@ -33,7 +38,6 @@ function DateSection() {
         </p>
       </div>
 
-      {/* RIGHT SIDE STATIC NUMBERS */}
       <div className="text-center w-full md:w-auto">
         <div className="flex justify-center gap-4 flex-wrap">
           {[
@@ -43,19 +47,22 @@ function DateSection() {
             { label: "seconds", value: "59" },
           ].map((item, index) => (
             <div key={index} className="flex flex-col items-center">
-              <span className="text-6xl text-black md:text-8xl tracking-[0.10em]">
+              <span
+                className="text-6xl md:text-8xl tracking-[0.10em]"
+                style={{ color: "#000000" }}
+              >
                 {item.value}
               </span>
               <span
                 className="text-s border rounded-full px-14 py-1 -mt-6"
-                style={{ backgroundColor: "white" }}
+                style={{ backgroundColor: "#FFFFFF", borderColor: "#000000" }}
               >
                 {item.label}
               </span>
             </div>
           ))}
         </div>
-        <p className="mt-3 text-gray-600 md:text-xl">
+        <p className="mt-3 md:text-xl" style={{ color: "#4B5563" }}>
           Keralas biggest AI & Technology Conclave
         </p>
       </div>

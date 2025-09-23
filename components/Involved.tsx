@@ -2,79 +2,95 @@
 
 import React from "react";
 
-function Involved() {
-  const cards = [
-    { id: 1, highlighted: false },
-    { id: 2, highlighted: true },
-    { id: 3, highlighted: false },
-    { id: 4, highlighted: false },
-  ];
+const cards = [
+  {
+    id: 1,
+    highlighted: false,
+    icon: "/assets/images/Rectangle 40308.svg",
+    arrow: "/assets/images/Group 1171275380.svg",
+  },
+  {
+    id: 2,
+    highlighted: true,
+    icon: "/assets/images/Rectangle 40309.svg",
+    arrow: "/assets/images/Group 1171275381.svg",
+  },
+  {
+    id: 3,
+    highlighted: false,
+    icon: "/assets/images/Rectangle 40308.svg",
+    arrow: "/assets/images/Group 1171275380.svg",
+  },
+  {
+    id: 4,
+    highlighted: false,
+    icon: "/assets/images/Rectangle 40308.svg",
+    arrow: "/assets/images/Group 1171275380.svg",
+  },
+];
 
+function Involved() {
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-12 py-10">
-      {/* HEADER */}
-      <div className="flex justify-between items-start mb-8">
+    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="flex items-start justify-between mb-12">
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text)]">
+          <h2
+            className="text-4xl font-bold"
+            style={{ color: "#111827" }}
+          >
             Get Involved
           </h2>
-          <p className="text-gray-500 text-base md:text-lg mt-2">
-            Be part of Keralas biggest AI & Technology Conclave and connect{" "}
-            <br />
+          <p
+            className="mt-4 text-lg"
+            style={{ color: "#4B5563" }}
+          >
+            Be part of Keralas biggest AI & Technology Conclave and connect <br />
             with innovators, leaders, and enthusiasts from across the country
           </p>
         </div>
         <img
           src="/assets/images/Group 1171275378.svg"
-          alt="icons"
-          className="h-6 md:h-8"
+          alt="Decorative icons"
+          className="hidden h-8 sm:block"
         />
       </div>
 
-      {/* CARDS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <div
             key={card.id}
-            className={`flex flex-col justify-between rounded-2xl border p-6 shadow-sm transition hover:shadow-md ${
-              card.highlighted
-                ? "bg-[#1E90FF] text-white"
-                : "bg-white text-[var(--color-text)]"
-            }`}
+            className="flex h-full flex-col justify-between rounded-3xl border p-8 shadow-sm transition hover:shadow-lg"
+            style={{
+              borderColor: "#000000",
+              backgroundColor: card.highlighted ? "#3B82F6" : "#FFFFFF",
+              color: card.highlighted ? "#FFFFFF" : "#1F2937",
+            }}
           >
-            {/* ICON */}
-            <div
-              className={`h-6 w-6 rounded ${
-                card.highlighted ? "bg-[#9CF694]" : "bg-[#1E90FF]"
-              }`}
-            ></div>
+            <div>
+              <img src={card.icon} alt="Card icon" className="h-12 w-12" />
+              <h3 className="mt-8 text-2xl font-bold">Become a speaker</h3>
+              <p className="mt-4 text-base leading-relaxed">
+                Be part of Keralas biggest AI & Technology Conclave and connect
+                with innovators, leaders, and enthusiasts.
+              </p>
+            </div>
 
-            {/* TEXT */}
-            <h3 className="mt-4 text-lg font-medium">Become a speaker</h3>
-            <p className="text-sm mt-2 leading-relaxed">
-              Be part of Keralas biggest AI & Technology Conclave and connect
-              with innovators, leaders, and enthusiasts.
-            </p>
-
-            {/* BUTTON */}
-            <button
-              className={`mt-6 flex items-center justify-between rounded-full px-4 py-2 font-medium shadow-md transition ${
-                card.highlighted
-                  ? "bg-white text-black"
-                  : "bg-[#1E90FF] text-white"
-              }`}
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfAZZpitA5SliZ1ivPH0PmQled6eyuyaHUnKLIY5TP1YXjRIQ/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center justify-between group cursor-pointer"
+              style={{ color: card.highlighted ? "#FFFFFF" : "#1F2937" }}
             >
-              Apply Now
-              <span
-                className={`ml-2 flex items-center justify-center rounded-full h-6 w-6 ${
-                  card.highlighted
-                    ? "bg-[#9CF694] text-black"
-                    : "bg-white text-[#1E90FF]"
-                }`}
-              >
-                ➜
+              <span className="font-semibold group-hover:underline">
+                Apply Now
               </span>
-            </button>
+              <img
+                src={card.arrow}
+                alt="Arrow icon"
+                className="h-14 w-16 transition-transform group-hover:translate-x-1"
+              />
+            </a>
           </div>
         ))}
       </div>
