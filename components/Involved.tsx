@@ -8,24 +8,40 @@ const cards = [
     highlighted: false,
     icon: "/assets/images/Rectangle 40308.svg",
     arrow: "/assets/images/Group 1171275380.svg",
+    title: "Become a Sponsor",
+    description:
+      "Partner with us to shape the future of AI innovation.",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLScvtPBj8e9o1v2s7heNDGGW_iz2AwCQB_FKBqEv2OKITxcyzg/viewform",
   },
   {
     id: 2,
     highlighted: true,
     icon: "/assets/images/Rectangle 40309.svg",
     arrow: "/assets/images/Group 1171275381.svg",
+    title: "Become a Speaker",
+    description:
+      "Share your expertise and insights with the AI community.",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSfAZZpitA5SliZ1ivPH0PmQled6eyuyaHUnKLIY5TP1YXjRIQ/viewform",
   },
   {
     id: 3,
     highlighted: false,
     icon: "/assets/images/Rectangle 40308.svg",
     arrow: "/assets/images/Group 1171275380.svg",
+    title: "Become an Exhibitor",
+    description:
+      "Showcase your AI solutions and connect with industry leaders.",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSdAu78_Eh1Cbt-_M4k6YBSZe-kOnuSdcC4TBqNdF3yDFfZCQw/viewform",
   },
   {
     id: 4,
     highlighted: false,
     icon: "/assets/images/Rectangle 40308.svg",
     arrow: "/assets/images/Group 1171275380.svg",
+    title: "Join as Volunteer",
+    description:
+      "Be part of the organizing team and gain valuable experience.",
+    link: "https://docs.google.com/forms/d/e/1FAIpQLSccyRPittAjflEQYAdpnfXjQ4MoA1xNs6LnwwkrX8Y0Stas7g/viewform",
   },
 ];
 
@@ -34,18 +50,12 @@ function Involved() {
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between mb-12">
         <div>
-          <h2
-            className="text-4xl font-bold"
-            style={{ color: "#111827" }}
-          >
+          <h2 className="text-4xl font-bold" style={{ color: "#111827" }}>
             Get Involved
           </h2>
-          <p
-            className="mt-4 text-lg"
-            style={{ color: "#4B5563" }}
-          >
-            Be part of Keralas biggest AI & Technology Conclave and connect <br />
-            with innovators, leaders, and enthusiasts from across the country
+          <p className="mt-4 text-lg" style={{ color: "#4B5563" }}>
+            Be part of Kerala's biggest AI & Technology Conclave and connect <br />
+            with innovators, leaders, and enthusiasts from across the country.
           </p>
         </div>
         <img
@@ -68,15 +78,14 @@ function Involved() {
           >
             <div>
               <img src={card.icon} alt="Card icon" className="h-12 w-12" />
-              <h3 className="mt-8 text-2xl font-bold">Become a speaker</h3>
+              <h3 className="mt-8 text-2xl font-bold">{card.title}</h3>
               <p className="mt-4 text-base leading-relaxed">
-                Be part of Keralas biggest AI & Technology Conclave and connect
-                with innovators, leaders, and enthusiasts.
+                {card.description}
               </p>
             </div>
 
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfAZZpitA5SliZ1ivPH0PmQled6eyuyaHUnKLIY5TP1YXjRIQ/viewform"
+              href={card.link}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 flex items-center justify-between group cursor-pointer"
