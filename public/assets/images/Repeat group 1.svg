@@ -1,0 +1,10 @@
+<svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Repeat group 1_inner" data-figma-trr="r6u0.2-0f">
+<rect x="16.4493" y="1.04004" width="3.97099" height="30.5461" rx="1.9855" fill="#E052FF"/>
+</g>
+<use xlink:href="#Repeat%20group%201_inner" transform="translate(25.1825 -6.74764) rotate(60)"/>
+<use xlink:href="#Repeat%20group%201_inner" transform="translate(43.6174 11.6873) rotate(120)"/>
+<use xlink:href="#Repeat%20group%201_inner" transform="translate(36.8698 36.8698) rotate(-180)"/>
+<use xlink:href="#Repeat%20group%201_inner" transform="translate(11.6872 43.6174) rotate(-120)"/>
+<use xlink:href="#Repeat%20group%201_inner" transform="translate(-6.74764 25.1825) rotate(-60)"/>
+</svg>
