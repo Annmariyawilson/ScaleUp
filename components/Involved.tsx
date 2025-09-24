@@ -47,7 +47,7 @@ const cards = [
 
 function Involved() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="flex items-start justify-between mb-12">
         <div>
           <h2 className="text-4xl font-bold" style={{ color: "#111827" }}>

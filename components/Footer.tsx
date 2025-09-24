@@ -46,10 +46,12 @@ function Footer() {
                 className="text-xl mb-8 leading-relaxed"
                 style={{ color: "#D1D5DB" }}
               >
-                Kerala's biggest AI & Technology <br /> conclave bringing
+                Kerala&apos;s biggest AI & Technology <br /> conclave bringing
                 together innovators, <br />
-                entrepreneurs, and thought leaders to scale to <br /> intelligence.
+                entrepreneurs, and thought leaders to scale to <br />{" "}
+                intelligence.
               </p>
+
               <div className="flex gap-4">
                 {socialIcons.map((icon, index) => (
                   <a
@@ -57,7 +59,12 @@ function Footer() {
                     key={index}
                     className="hover:opacity-80 transition-opacity"
                   >
-                    <Image src={icon.src} alt={icon.alt} width={32} height={32} />
+                    <Image
+                      src={icon.src}
+                      alt={icon.alt}
+                      width={32}
+                      height={32}
+                    />
                   </a>
                 ))}
               </div>
@@ -71,7 +78,8 @@ function Footer() {
                 height={70}
               />
               <p className="text-base" style={{ color: "#D1D5DB" }}>
-                <strong>Location:</strong> Al Shifa Convention Center, <br /> Perinthalmanna
+                <strong>Location:</strong> Al Shifa Convention Center, <br />{" "}
+                Perinthalmanna
               </p>
               <div className="w-[250px] h-[160px] overflow-hidden rounded-md mb-9">
                 <iframe

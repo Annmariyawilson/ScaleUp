@@ -12,15 +12,6 @@
   --color-button-arrow-bg: #1E90FF;
 }
 
-/*  Custom Font (Gilmer Medium) */
-@font-face {
-  font-family: "Gilmer";
-  src: url("/fonts/Gilmer-Medium.woff2") format("woff2"),
-       url("/fonts/Gilmer-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-
 body {
   font-family: "Gilmer", sans-serif;
   background-color: var(--color-bg);
