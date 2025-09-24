@@ -18,7 +18,7 @@ function Footer() {
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
       >
         <Image
-          src="/assets/images/scaleup.svg"
+          src="/assets/images/scale.svg"
           alt="ScaleUp background text"
           width={1200}
           height={200}
