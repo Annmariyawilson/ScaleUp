@@ -11,7 +11,7 @@ function Hero() {
             ScaleUp Conclave{" "}
           </span>
           <Image
-            src="/assets/images/vector.svg"
+            src="/assets/images/v.svg"
             alt="rose icon"
             width={60}
             height={60}

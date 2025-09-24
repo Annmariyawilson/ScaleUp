@@ -20,8 +20,8 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
     rules: {
-      "react/no-unescaped-entities": "off", // disables single quote escaping rule
-      "@next/next/no-img-element": "warn", // keeps warning but not error
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-img-element": "warn", 
     },
   },
 ];
