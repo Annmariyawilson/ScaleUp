@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 
 function Hero() {
   return (
@@ -10,8 +9,8 @@ function Hero() {
           <span style={{ color: "#418CFF" }} className="ml-138">
             ScaleUp Conclave{" "}
           </span>
-          <Image
-            src="/assets/images/v.svg"
+          <img
+            src="/assets/images/vector.svg"
             alt="rose icon"
             width={60}
             height={60}
@@ -38,7 +37,7 @@ function Hero() {
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
       >
         <div className="absolute top-4 right-4 mt-8">
-          <Image
+          <img
             src="/assets/images/img_icon2.svg"
             alt="icons"
             width={120}
@@ -57,7 +56,7 @@ function Hero() {
         </p>
 
         <div className="flex items-center gap-4 mt-6">
-          <Image
+          <img
             src="/assets/images/arrow_circle.svg"
             alt="arrow button"
             width={60}
@@ -77,7 +76,7 @@ function Hero() {
             className="flex items-center gap-2 px-5 py-3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl text-sm md:text-base font-medium"
             style={{ backgroundColor: "#3F26DB", color: "#FFFFFF" }}
           >
-            <Image
+            <img
               src="/assets/images/calender.svg"
               alt="calendar"
               width={20}

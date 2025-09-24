@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 
 function Footer() {
   const socialIcons = [
@@ -17,7 +16,7 @@ function Footer() {
         className="relative mx-auto mb-6 max-w-10xl rounded-3xl overflow-hidden"
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
       >
-        <Image
+        <img
           src="/assets/images/scaleup.svg"
           alt="ScaleUp background text"
           width={1200}
@@ -29,7 +28,7 @@ function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <Image
+                <img
                   src="/assets/images/arrow_circle.svg"
                   alt="Scale to Intelligence icon"
                   width={40}
@@ -59,7 +58,7 @@ function Footer() {
                     key={index}
                     className="hover:opacity-80 transition-opacity"
                   >
-                    <Image
+                    <img
                       src={icon.src}
                       alt={icon.alt}
                       width={32}
@@ -71,7 +70,7 @@ function Footer() {
             </div>
 
             <div className="flex flex-col items-start md:items-end gap-5 text-left md:text-right">
-              <Image
+              <img
                 src="/assets/images/ai_summit_icon.svg"
                 alt="The AI Summit logo"
                 width={150}
