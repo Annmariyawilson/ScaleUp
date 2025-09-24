@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 function Footer() {
   const socialIcons = [
@@ -16,7 +17,7 @@ function Footer() {
         className="relative mx-auto mb-6 max-w-10xl rounded-3xl overflow-hidden"
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
       >
-        <img
+        <Image
           src="/assets/images/scaleup.svg"
           alt="ScaleUp background text"
           width={1200}

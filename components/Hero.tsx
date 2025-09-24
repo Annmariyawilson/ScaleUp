@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import Image from "next/image";
 function Hero() {
   return (
     <section className="w-full flex flex-col items-center px-4 py-12 relative">
@@ -9,8 +9,8 @@ function Hero() {
           <span style={{ color: "#418CFF" }} className="ml-138">
             ScaleUp Conclave{" "}
           </span>
-          <img
-            src="/assets/images/vector.svg"
+          <Image
+            src="/assets/images/v.svg"
             alt="rose icon"
             width={60}
             height={60}
