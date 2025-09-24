@@ -50,7 +50,7 @@ export function Whatsapp({ open, setOpen }: Props) {
 
           {/* FIXED TITLE */}
           <DialogTitle className="text-lg font-[700]">
-            Stay Connected for Ticket Updates
+            Stay Connected for Ai Communities
           </DialogTitle>
         </DialogHeader>
 
