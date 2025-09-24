@@ -4,11 +4,11 @@ import Image from "next/image";
 
 function Footer() {
   const socialIcons = [
-    { src: "/assets/images/Item → Link.svg", alt: "Pinterest" },
-    { src: "/assets/images/Item → Link (1).svg", alt: "Facebook" },
-    { src: "/assets/images/Item → Link (2).svg", alt: "Twitter" },
-    { src: "/assets/images/Item → Link (3).svg", alt: "Dribbble" },
-    { src: "/assets/images/Item → Link (4).svg", alt: "Instagram" },
+    { src: "/assets/images/pinterest.svg", alt: "Pinterest" },
+    { src: "/assets/images/facebook.svg", alt: "Facebook" },
+    { src: "/assets/images/twitter.svg", alt: "Twitter" },
+    { src: "/assets/images/dribbble.svg", alt: "Dribbble" },
+    { src: "/assets/images/insta.svg", alt: "Instagram" },
   ];
 
   return (
@@ -18,7 +18,7 @@ function Footer() {
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
       >
         <Image
-          src="/assets/images/ScaleUp.svg"
+          src="/assets/images/scaleup.svg"
           alt="ScaleUp background text"
           width={1200}
           height={200}
@@ -30,7 +30,7 @@ function Footer() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <Image
-                  src="/assets/images/Group 48096055.svg"
+                  src="/assets/images/arrow_circle.svg"
                   alt="Scale to Intelligence icon"
                   width={40}
                   height={40}
@@ -65,7 +65,7 @@ function Footer() {
 
             <div className="flex flex-col items-start md:items-end gap-5 text-left md:text-right">
               <Image
-                src="/assets/images/Group 48096080.svg"
+                src="/assets/images/ai_summit_icon.svg"
                 alt="The AI Summit logo"
                 width={150}
                 height={70}

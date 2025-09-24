@@ -15,7 +15,7 @@ function DateSection() {
         <p className="flex items-center gap-2">
           2 Days
           <img
-            src="/assets/images/Repeat group 1.svg"
+            src="/assets/images/star_icon.svg"
             alt="rose-icon"
             className="h-9 w-9"
           />
@@ -31,7 +31,7 @@ function DateSection() {
         <p className="flex items-center gap-2">
           5000+ Innovators
           <img
-            src="/assets/images/Group 48096065.svg"
+            src="/assets/images/four_dot.svg"
             alt="blue-icon"
             className="h-9 w-9"
           />

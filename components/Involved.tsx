@@ -6,8 +6,8 @@ const cards = [
   {
     id: 1,
     highlighted: false,
-    icon: "/assets/images/Rectangle 40308.svg",
-    arrow: "/assets/images/Group 1171275380.svg",
+    icon: "/assets/images/rectangle_blue.svg",
+    arrow: "/assets/images/arrow_icon_blue.svg",
     title: "Become a Sponsor",
     description:
       "Partner with us to shape the future of AI innovation.",
@@ -16,8 +16,8 @@ const cards = [
   {
     id: 2,
     highlighted: true,
-    icon: "/assets/images/Rectangle 40309.svg",
-    arrow: "/assets/images/Group 1171275381.svg",
+    icon: "/assets/images/rectangle_green.svg",
+    arrow: "/assets/images/arrow_icon_green.svg",
     title: "Become a Speaker",
     description:
       "Share your expertise and insights with the AI community.",
@@ -26,8 +26,8 @@ const cards = [
   {
     id: 3,
     highlighted: false,
-    icon: "/assets/images/Rectangle 40308.svg",
-    arrow: "/assets/images/Group 1171275380.svg",
+    icon: "/assets/images/rectangle_blue.svg",
+    arrow: "/assets/images/arrow_icon_blue.svg",
     title: "Become an Exhibitor",
     description:
       "Showcase your AI solutions and connect with industry leaders.",
@@ -36,8 +36,8 @@ const cards = [
   {
     id: 4,
     highlighted: false,
-    icon: "/assets/images/Rectangle 40308.svg",
-    arrow: "/assets/images/Group 1171275380.svg",
+    icon: "/assets/images/rectangle_blue.svg",
+    arrow: "/assets/images/arrow_icon_blue.svg",
     title: "Join as Volunteer",
     description:
       "Be part of the organizing team and gain valuable experience.",
@@ -59,7 +59,7 @@ function Involved() {
           </p>
         </div>
         <img
-          src="/assets/images/Group 1171275378.svg"
+          src="/assets/images/img_icon2.svg"
           alt="Decorative icons"
           className="hidden h-8 sm:block"
         />

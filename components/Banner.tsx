@@ -31,7 +31,7 @@ function Banner() {
               }}
             >
               <img
-                src="/assets/images/whatsapp-svgrepo-com (2) 1.svg"
+                src="/assets/images/whatsapp.svg"
                 alt="WhatsApp"
                 className="h-5 w-5"
               />
@@ -39,14 +39,14 @@ function Banner() {
                 Join Whatsapp
               </span>
               <img
-                src="/assets/images/Group 1171275380.svg"
+                src="/assets/images/arrow_icon_blue.svg"
                 alt=""
                 className="w-15"
               />
             </a>
 
             <img
-              src="/assets/images/Group 48096077.svg"
+              src="/assets/images/img_icons.svg"
               alt=""
               className="w-20"
             />
@@ -55,7 +55,7 @@ function Banner() {
 
         <div className="relative md:w-1/2 flex justify-center">
           <img
-            src="/assets/images/Gemini_Generated_Image_tbcbijtbcbijtbcb 1.png"
+            src="/assets/images/banner_img.png"
             alt="img"
           />
         </div>

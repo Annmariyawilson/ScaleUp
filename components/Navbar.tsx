@@ -14,7 +14,7 @@ function Navbar() {
           {/* Left Logo */}
           <div className="flex items-center">
             <img
-              src="/assets/images/Group 2471.svg"
+              src="/assets/images/icon.svg"
               alt="ScaleUp 2025"
               className="h-8 md:h-10"
             />
@@ -38,7 +38,7 @@ function Navbar() {
           {/* Right Logo */}
           <div className="flex items-center">
             <img
-              src="/assets/images/Group 1171275390.svg"
+              src="/assets/images/ai_summit_blue.svg"
               alt="The AI Summit"
               className="h-8 md:h-10"
             />

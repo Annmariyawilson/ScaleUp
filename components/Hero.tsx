@@ -11,7 +11,7 @@ function Hero() {
             ScaleUp Conclave{" "}
           </span>
           <Image
-            src="/assets/images/Vector.svg"
+            src="/assets/images/vector.svg"
             alt="rose icon"
             width={60}
             height={60}
@@ -39,7 +39,7 @@ function Hero() {
       >
         <div className="absolute top-4 right-4 mt-8">
           <Image
-            src="/assets/images/Group 1171275378.svg"
+            src="/assets/images/img_icon2.svg"
             alt="icons"
             width={120}
             height={30}
@@ -58,7 +58,7 @@ function Hero() {
 
         <div className="flex items-center gap-4 mt-6">
           <Image
-            src="/assets/images/Group 48096055.svg"
+            src="/assets/images/arrow_circle.svg"
             alt="arrow button"
             width={60}
             height={60}
@@ -75,7 +75,7 @@ function Hero() {
         <div className="absolute bottom-6 right-6 flex gap-2">
           <button
             className="flex items-center gap-2 px-5 py-3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl text-sm md:text-base font-medium"
-            style={{ backgroundColor: "#4B4DFF", color: "#FFFFFF" }}
+            style={{ backgroundColor: "#3F26DB", color: "#FFFFFF" }}
           >
             <Image
               src="/assets/images/calender.svg"
