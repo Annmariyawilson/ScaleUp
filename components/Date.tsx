@@ -9,7 +9,7 @@ function DateSection() {
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       <div
-        className="space-y-4 font-medium text-4xl md:text-6xl"
+        className="space-y-4  text-4xl font-extrabold md:text-6xl"
         style={{ color: "var(--color-text)" }}
       >
         <p className="flex items-center gap-2">
@@ -39,7 +39,7 @@ function DateSection() {
       </div>
 
       <div className="text-center w-full md:w-auto">
-        <div className="flex justify-center gap-4 flex-wrap">
+        <div className="flex justify-center gap-4 font-extrabold flex-wrap">
           {[
             { label: "months", value: "03" },
             { label: "days", value: "29" },
