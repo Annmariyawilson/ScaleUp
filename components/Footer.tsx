@@ -93,7 +93,10 @@ function Footer() {
                 style={{ color: "#D1D5DB" }}
               >
                 <Mail size={20} />
-                <a href="tel:+919048170077" className="hover:underline">
+                <a
+                  href="mailto:info@scaleupconclave.com"
+                  className="hover:underline"
+                >
                   info@scaleupconclave.com
                 </a>
               </div>
