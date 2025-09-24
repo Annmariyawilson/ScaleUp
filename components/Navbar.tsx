@@ -30,8 +30,8 @@ function Navbar() {
               2024
             </a>
             <span className="mx-1">|</span>
-            <a href="#" className="hover:underline">
-              2025
+            <a href="https://dubai.scaleupconclave.com/" className="hover:underline">
+              ScaleUp Dubai
             </a>
           </div>
 

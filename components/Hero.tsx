@@ -25,12 +25,12 @@ function Hero() {
           style={{ color: "#4028C8" }}
         >
           <span
-            className="font-light tracking-tight"
+            className="font-light tracking-tight !text-[170px]"
             style={{ color: "#060832" }}
           >
             The
           </span>{" "}
-          <span className="font-extrabold">Ai Summit</span>
+          <span className="!text-[170px] font-bold">Ai Summit</span>
         </h1>
       </div>
 
@@ -41,9 +41,7 @@ function Hero() {
         {/* MOBILE HEADING - displayed inside card */}
         <div className="text-center block md:hidden mb-6">
           <h1 className="text-4xl font-bold leading-tight">
-            <span style={{ color: "#418CFF" }}>
-              ScaleUp Conclave{" "}
-            </span>
+            <span style={{ color: "#418CFF" }}>ScaleUp Conclave </span>
             <Image
               src="/assets/images/v.svg"
               alt="rose icon"
