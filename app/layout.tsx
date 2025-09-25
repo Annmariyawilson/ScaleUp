@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ScaleUp Conclave",
-  description: "Modern landing page built with Next.js and Tailwind CSS",
+  description: "ScaleUp Conclave - 2026",
   icons: {
     icon: "/favicon.ico", 
   },
