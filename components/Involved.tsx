@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const cards = [
   {
@@ -8,25 +8,28 @@ const cards = [
     title: "Become a Sponsor",
     description: "Partner with us to shape the future of AI innovation.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLScvtPBj8e9o1v2s7heNDGGW_iz2AwCQB_FKBqEv2OKITxcyzg/viewform",
+    icon: "/assets/images/svg01.svg",
   },
   {
     id: 2,
     title: "Become a Speaker",
     description: "Share your expertise and insights with the AI community.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfAZZpitA5SliZ1ivPH0PmQled6eyuyaHUnKLIY5TP1YXjRIQ/viewform",
+    icon: "/assets/images/svg02.svg",
   },
   {
     id: 3,
     title: "Become an Exhibitor",
-    description:
-      "Showcase your AI solutions and connect with industry leaders.",
+    description: "Showcase your AI solutions and connect with industry leaders.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSdAu78_Eh1Cbt-_M4k6YBSZe-kOnuSdcC4TBqNdF3yDFfZCQw/viewform",
+    icon: "/assets/images/svg03.svg",
   },
   {
     id: 4,
     title: "Join as Volunteer",
     description: "Be part of the organizing team and gain valuable experience.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSccyRPittAjflEQYAdpnfXjQ4MoA1xNs6LnwwkrX8Y0Stas7g/viewform",
+    icon: "/assets/images/svg04.svg",
   },
 ];
 
@@ -35,36 +38,27 @@ function Involved() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 480);
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <section
-      className="mx-auto px-4 sm:px-6 md:px-8"
-      style={{
-        maxWidth: isMobile ? "100%" : "1400px",
-        paddingTop: isMobile ? "30px" : "64px",
-        paddingBottom: isMobile ? "30px" : "64px",
-      }}
-    >
-      <div className="flex flex-col sm:flex-row justify-between items-start mb-12 gap-6">
+    <section className="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-12">
         <div className="flex-1">
-          <p
-            className="font-semibold m-0 leading-tight"
-            style={{
-              fontSize: isMobile ? "32px" : "57px",
-              color: "#202020",
-            }}
+          <h2
+            className="font-semibold"
+            style={{ fontSize: isMobile ? "40px" : "60px", color: "#202020" }}
           >
             Get Involved
-          </p>
+          </h2>
           <p
             className="mt-4 font-light"
             style={{
-              fontSize: isMobile ? "16px" : "28px",
+              fontSize: isMobile ? "18px" : "28px",
               lineHeight: isMobile ? "22px" : "36px",
               color: "#4B5563",
             }}
@@ -74,7 +68,6 @@ function Involved() {
             with innovators, leaders, and enthusiasts from across the country.
           </p>
         </div>
-
         {!isMobile && (
           <img
             src="/assets/images/img_icon2.svg"
@@ -84,15 +77,10 @@ function Involved() {
         )}
       </div>
 
-      <div
-        className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
-        style={{
-          scrollSnapType: "x mandatory",
-        }}
-      >
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => {
           const isActive = activeCard === card.id;
-          const icon = isActive
+          const rectangle = isActive
             ? "/assets/images/rectangle_green.svg"
             : "/assets/images/rectangle_blue.svg";
           const arrow = isActive
@@ -103,29 +91,31 @@ function Involved() {
             <div
               key={card.id}
               onClick={() => setActiveCard(card.id)}
-              className={`flex-shrink-0 flex flex-col justify-between cursor-pointer transition-all duration-300`}
+              className="flex h-full flex-col justify-between rounded-3xl border p-8 shadow-sm transition hover:shadow-lg cursor-pointer"
               style={{
-                width: isMobile ? "85%" : "310px",
-                minWidth: isMobile ? "85%" : "310px",
-                height: isMobile ? "270px" : "390px",
-                borderRadius: isMobile ? "26px" : "38px",
-                border: "1px solid #000",
-                padding: isMobile ? "16px" : "30px",
+                borderColor: "#000",
                 backgroundColor: isActive ? "#1E90FF" : "#FFFFFF",
                 color: isActive ? "#FFFFFF" : "#202020",
-                boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-                scrollSnapAlign: "start",
               }}
             >
               <div>
-                <img
-                  src={icon}
-                  alt="Card icon"
-                  className="h-10 w-10"
-                />
+                {/* Rectangle with inner icon */}
+                <div className="relative inline-block">
+                  <img
+                    src={rectangle}
+                    alt="Card background icon"
+                    className="h-12 w-12"
+                  />
+                  <img
+                    src={card.icon}
+                    alt={card.title}
+                    className="absolute inset-0 m-auto h-6 w-6"
+                  />
+                </div>
+
                 <h3
-                  className="mt-6 font-bold"
-                  style={{ fontSize: isMobile ? "18px" : "24px" }}
+                  className="mt-8 text-2xl font-bold"
+                  style={{ fontSize: isMobile ? "20px" : "24px" }}
                 >
                   {card.title}
                 </h3>
@@ -144,10 +134,10 @@ function Involved() {
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 flex justify-between items-center font-semibold no-underline"
+                className="mt-4 flex items-center justify-between font-semibold no-underline"
                 style={{
                   fontSize: isMobile ? "14px" : "16px",
-                  color: isActive ? "#FFFFFF" : "#1E90FF",
+                  color: isActive ? "#FFFFFF" : "black",
                 }}
               >
                 <span>Apply Now</span>

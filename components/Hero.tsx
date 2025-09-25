@@ -15,7 +15,7 @@ function Hero() {
           </span>
           <img
             src="/assets/images/v.svg"
-            alt="rose icon"
+            alt="icon"
             className="inline-block w-5 h-5 md:w-[60px] md:h-[60px]"
           />
         </h1>
@@ -56,7 +56,14 @@ function Hero() {
         <div>
           {/* Tagline */}
           <p className="font-gilmer text-4xl md:text-5xl font-normal leading-tight md:leading-normal">
-            ScaleUp Conclave 2026 <br /> is back and this time,{" "}
+            ScaleUp Conclave
+             {" "} <span
+              className="font-gilmer font-bold underline underline-offset-4 decoration-[3px]"
+              style={{ textDecorationColor: "#9CF694" }}
+            >
+            2026{" "}
+            </span>{" "}
+            <br /> is back and this time,{" "}
             <span
               className="font-gilmer font-bold underline underline-offset-4 decoration-[3px]"
               style={{ textDecorationColor: "#9CF694" }}

@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 function DateSection() {
-  const targetDate = new Date("2026-01-17T00:00:00");
+  const targetDate = new Date("2026-01-17T09:00:00");
   const [timeLeft, setTimeLeft] = useState({
     months: "00",
     days: "00",

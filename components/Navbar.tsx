@@ -27,21 +27,21 @@ function Navbar() {
             <span>Previous editions:&nbsp;</span>
             <a
               href="https://2024.scaleupconclave.com/"
-              className="hover:underline font-bold"
+              className="underline font-bold"
             >
               2024
             </a>
             <span className="mx-1">|</span>
             <a
               href="https://scaleup2025.netlify.app/"
-              className="hover:underline font-bold"
+              className="underline font-bold"
             >
               2025
             </a>
             <span className="mx-1">|</span>
             <a
               href="https://dubai.scaleupconclave.com/"
-              className="hover:underline font-bold"
+              className="underline font-bold"
             >
               ScaleUp Dubai
             </a>
