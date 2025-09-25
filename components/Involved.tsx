@@ -35,7 +35,7 @@ const cards = [
 ];
 
 function Involved() {
-  const [activeCard, setActiveCard] = useState(2);
+  const [activeCard, setActiveCard] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
