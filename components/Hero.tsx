@@ -20,17 +20,17 @@ function Hero() {
           />
         </h1>
         <h1
-          className="text-6xl mb-0 mt-0 tracking-tight md:text-[180px] md:-mt-29 md:mb-5 md:tracking-[1rem]"
+          className="text-6xl mb-0 mt-0  md:text-[180px] md:-mt-29 md:mb-5 md:tracking-[1rem]"
           style={{ color: "#4028C8" }}
         >
           <span
-            className="font-gilmer tracking-tight text-5xl md:!text-[170px]"
+            className="font-gilmer tracking-tight md:text-[140px] lg:text-[170px]"
             style={{ color: "#060832" }}
           >
             The
           </span>{" "}
           <span
-            className="font-gilmer text-5xl md:!text-[170px]"
+            className="font-gilmer tracking-tight leading-[48px] md:text-[140px] lg:text-[170px]"
             style={{ fontWeight: "700" }}
           >
             Ai Summit
@@ -56,12 +56,12 @@ function Hero() {
         <div>
           {/* Tagline */}
           <p className="font-gilmer text-4xl md:text-5xl font-normal leading-tight md:leading-normal">
-            ScaleUp Conclave
-             {" "} <span
+            ScaleUp Conclave{" "}
+            <span
               className="font-gilmer font-bold underline underline-offset-4 decoration-[3px]"
               style={{ textDecorationColor: "#9CF694" }}
             >
-            2026{" "}
+              2026{" "}
             </span>{" "}
             <br /> is back and this time,{" "}
             <span
