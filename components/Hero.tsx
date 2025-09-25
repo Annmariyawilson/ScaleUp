@@ -7,12 +7,12 @@ function Hero() {
       {/* --- RESPONSIVE HEADING SECTION --- */}
       <div className="text-right md:text-center mb-8">
         {/* First Line */}
-        <h1 className="text-xl md:text-[85px] mb-2 md:mb-18">
+        <h1 className="text-xl md:text-[80px] mb-2 md:mb-18">
           <span
             style={{ color: "#418CFF", fontWeight: "600" }}
-            className="font-gilmer md:ml-90"
+            className="font-gilmer md:ml-80"
           >
-            ScaleUp Conclave{" "}
+            ScaleUp Conclave
           </span>
           <img
             src="/assets/images/v.svg"
@@ -27,7 +27,7 @@ function Hero() {
           style={{ color: "#4028C8" }}
         >
           <span
-            className="font-gilmer tracking-tight sm:text-6xl md:text-[140px] lg:text-[170px]"
+            className="font-gilmer sm:text-6xl md:text-[140px] lg:text-[170px]"
             style={{ color: "#060832" }}
           >
             The
