@@ -23,7 +23,7 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col overflow-hidden">
       <Navbar />
       <Hero />
       <Date />

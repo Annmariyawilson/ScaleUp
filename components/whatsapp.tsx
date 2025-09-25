@@ -7,10 +7,6 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { X } from "lucide-react";
 
 interface Props {
   open: boolean;
@@ -22,7 +18,7 @@ export function Whatsapp({ open, setOpen }: Props) {
   return (
     <Dialog open={open} onOpenChange={() => setOpen(false)}>
       <DialogContent
-        className="fixed left-1/2 top-1/2 w-full max-w-md -translate-x-1/2 -translate-y-1/2 rounded-xl p-6"
+        className="fixed w-full max-w-md rounded-xl p-6"
         style={{
           backgroundColor: "#fff",
           color: "var(--neutral-50)",

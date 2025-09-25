@@ -43,43 +43,50 @@ function Involved() {
 
   return (
     <section
+      className="mx-auto px-4 sm:px-6 md:px-8"
       style={{
-        maxWidth: isMobile ? "350px" : "1400px",
-        margin: "0 auto",
-        padding: isMobile ? "30px 10px" : "64px 24px",
+        maxWidth: isMobile ? "100%" : "1400px",
+        paddingTop: isMobile ? "30px" : "64px",
+        paddingBottom: isMobile ? "30px" : "64px",
       }}
     >
-      <div className="flex justify-between items-start mb-12 flex-wrap">
-        <div className="basis-[60%] flex-1">
+      <div className="flex flex-col sm:flex-row justify-between items-start mb-12 gap-6">
+        <div className="flex-1">
           <p
-            className="text-[35px] leading-tight sm:text-[48px] md:text-[57px] font-semibold m-0"
-            style={{ color: "#202020" }}
+            className="font-semibold m-0 leading-tight"
+            style={{
+              fontSize: isMobile ? "32px" : "57px",
+              color: "#202020",
+            }}
           >
             Get Involved
           </p>
           <p
-            className="mt-4 text-[18px] leading-6 sm:text-[18px] sm:leading-7 md:text-[28px] md:leading-9 font-light"
-            style={{ color: "#4B5563" }}
+            className="mt-4 font-light"
+            style={{
+              fontSize: isMobile ? "16px" : "28px",
+              lineHeight: isMobile ? "22px" : "36px",
+              color: "#4B5563",
+            }}
           >
-            Be part of Kerala's biggest AI & Technology Conclave and connect{" "}
+            Be part of Kerala's biggest AI & Technology Conclave and connect
             <br />
             with innovators, leaders, and enthusiasts from across the country.
           </p>
         </div>
 
-        <img
-          src="/assets/images/img_icon2.svg"
-          alt="Decorative icons"
-          className={`h-8 ${isMobile ? "hidden" : "block"}`}
-        />
+        {!isMobile && (
+          <img
+            src="/assets/images/img_icon2.svg"
+            alt="Decorative icons"
+            className="h-8"
+          />
+        )}
       </div>
 
       <div
+        className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
         style={{
-          display: "flex",
-          gap: "16px",
-          overflowX: "auto",
-          paddingBottom: "16px",
           scrollSnapType: "x mandatory",
         }}
       >
@@ -96,42 +103,35 @@ function Involved() {
             <div
               key={card.id}
               onClick={() => setActiveCard(card.id)}
+              className={`flex-shrink-0 flex flex-col justify-between cursor-pointer transition-all duration-300`}
               style={{
-                flex: "0 0 auto",
-                width: isMobile ? "216.11px" : "310.53px",
-                height: isMobile ? "271.11px" : "389.54px",
-                borderRadius: isMobile ? "26.86px" : "38.59px",
-                border: isMobile ? "0.7px solid #000" : "1px solid #000",
-                padding: isMobile ? "12px" : "30px",
+                width: isMobile ? "85%" : "310px",
+                minWidth: isMobile ? "85%" : "310px",
+                height: isMobile ? "270px" : "390px",
+                borderRadius: isMobile ? "26px" : "38px",
+                border: "1px solid #000",
+                padding: isMobile ? "16px" : "30px",
                 backgroundColor: isActive ? "#1E90FF" : "#FFFFFF",
                 color: isActive ? "#FFFFFF" : "#202020",
                 boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                cursor: "pointer",
                 scrollSnapAlign: "start",
-                transition: "all 0.3s",
               }}
             >
               <div>
                 <img
                   src={icon}
                   alt="Card icon"
-                  style={{ height: "40px", width: "40px" }}
+                  className="h-10 w-10"
                 />
                 <h3
-                  style={{
-                    marginTop: "24px",
-                    fontSize: isMobile ? "18px" : "24px",
-                    fontWeight: 700,
-                  }}
+                  className="mt-6 font-bold"
+                  style={{ fontSize: isMobile ? "18px" : "24px" }}
                 >
                   {card.title}
                 </h3>
                 <p
+                  className="mt-3"
                   style={{
-                    marginTop: "12px",
                     fontSize: isMobile ? "14px" : "16px",
                     lineHeight: "22px",
                   }}
@@ -144,13 +144,8 @@ function Involved() {
                 href={card.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="mt-3 flex justify-between items-center font-semibold no-underline"
                 style={{
-                  marginTop: "12px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  textDecoration: "none",
-                  fontWeight: 600,
                   fontSize: isMobile ? "14px" : "16px",
                   color: isActive ? "#FFFFFF" : "#1E90FF",
                 }}
