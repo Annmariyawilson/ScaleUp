@@ -127,7 +127,7 @@ function Footer() {
                 height={60}
               />
               <p className="text-base font-gilmer" style={{ color: "#D1D5DB" }}>
-                <strong>Location:</strong> Shifa Convention Center, <br />{" "}
+                <strong>Location:</strong>Shifa Convention Center, <br />{" "}
                 Perinthalmanna
               </p>
               <div className="w-[250px] h-[160px] overflow-hidden rounded-md mb-9">
