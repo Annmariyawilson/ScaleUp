@@ -3,8 +3,7 @@
 import React, { useEffect, useState } from "react";
 
 function DateSection() {
-  // Set your target date here
-  const targetDate = new Date("2026-01-17T00:00:00"); // YYYY-MM-DDTHH:mm:ss
+  const targetDate = new Date("2026-01-17T00:00:00");
   const [timeLeft, setTimeLeft] = useState({
     months: "00",
     days: "00",
@@ -30,7 +29,6 @@ function DateSection() {
       const totalHours = Math.floor(totalMinutes / 60);
       const days = totalHours >= 24 ? Math.floor(totalHours / 24) : 0;
 
-      // Approximate months (30 days)
       const months = Math.floor(days / 30);
       const remainingDays = days % 30;
 
@@ -47,59 +45,71 @@ function DateSection() {
 
   return (
     <section
-      className="w-full px-4 sm:px-8 md:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-10"
+      className="w-full px-4 sm:px-8 md:px-12 flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-6 md:gap-10"
       style={{ backgroundColor: "var(--color-bg)" }}
     >
+      {/* Stats (below on mobile, left on desktop) */}
       <div
-        className="space-y-4  text-4xl font-extrabold md:text-6xl"
-        style={{ color: "var(--color-text)" }}
+        className="font-gilmer leading-[42px] md:leading-[85.97px] p-4 text-2xl sm:text-3xl md:text-[60px] text-left"
+        style={{ color: "var(--color-text)", fontWeight: "600" }}
       >
-        <p className="flex items-center gap-2">
+        <p className="flex items-center justify-start gap-2 text-3xl md:text-[60px]">
           2 Days
           <img
             src="/assets/images/star_icon.svg"
             alt="rose-icon"
-            className="h-9 w-9"
+            className="h-6 w-6 md:h-9 md:w-9"
           />
         </p>
-        <p className="flex items-center gap-2">
+        <p className="flex items-center justify-start gap-2 text-3xl sm:text-2xl md:text-[60px]">
           50+ Speakers
           <img
             src="/assets/images/Union.svg"
             alt="green-icon"
-            className="h-9 w-9"
+            className="h-6 w-6 md:h-9 md:w-9"
           />
         </p>
-        <p className="flex items-center gap-2">
+        <p className="flex items-center justify-start gap-2 text-3xl sm:text-2xl md:text-[60px]">
           5000+ Innovators
           <img
             src="/assets/images/four_dot.svg"
             alt="blue-icon"
-            className="h-9 w-9"
+            className="h-6 w-6 md:h-9 md:w-9"
           />
         </p>
       </div>
 
-      <div className="text-center w-full md:w-auto">
-        <div className="flex justify-center gap-4 font-extrabold flex-wrap">
+      {/* Timer (top on mobile, right on desktop) */}
+      <div className="font-gilmer text-center w-full md:w-auto mt-2 md:mt-0">
+        <div className="flex justify-center gap-2 md:gap-4 flex-nowrap overflow-x-auto">
           {Object.entries(timeLeft).map(([label, value], index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div
+              key={index}
+              className="flex flex-col items-center min-w-[50px] md:min-w-auto"
+            >
               <span
-                className="text-6xl md:text-8xl tracking-[0.10em]"
-                style={{ color: "#000000" }}
+                className="text-3xl sm:text-4xl md:text-8xl tracking-[0.10em]"
+                style={{ color: "#000000", fontWeight: "600" }}
               >
                 {value}
               </span>
               <span
-                className="text-s border rounded-full px-14 py-1 md:-mt-6 lg:-mt-6 -mt-3"
-                style={{ backgroundColor: "#FFFFFF", borderColor: "#000000" }}
+                className="border rounded-full px-4 py-1 sm:px-6 md:px-12 md:py-1 -mt-1 sm:-mt-2 md:-mt-4 text-xs sm:text-sm md:text-base"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  borderColor: "#000000",
+                  color: "#000000",
+                }}
               >
                 {label}
               </span>
             </div>
           ))}
         </div>
-        <p className="mt-3 md:text-xl" style={{ color: "#4B5563" }}>
+        <p
+          className="font-gilmer mt-3 text-xs sm:text-sm md:text-xl"
+          style={{ color: "#4B5563" }}
+        >
           Keralas biggest AI & Technology Conclave
         </p>
       </div>

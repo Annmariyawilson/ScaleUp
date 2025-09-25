@@ -59,18 +59,18 @@ function Footer() {
                 <img
                   src="/assets/images/arrow_circle.svg"
                   alt="Scale to Intelligence icon"
-                  width={40}
-                  height={40}
+                  width={50}
+                  height={50}
                 />
                 <h2
-                  className="text-2xl md:text-3xl font-semibold"
+                  className="font-gilmer text-2xl md:text-3xl font-semibold"
                   style={{ color: "#FFFFFF" }}
                 >
-                  Scale to Intelligence
+                  Scale to <br /> Intelligence
                 </h2>
               </div>
               <p
-                className="text-xl mb-8 leading-relaxed"
+                className="font-gilmer text-xl mb-8 leading-relaxed"
                 style={{ color: "#D1D5DB" }}
               >
                 Kerala&apos;s biggest AI & Technology <br /> conclave bringing
@@ -80,22 +80,25 @@ function Footer() {
               </p>
 
               <div
-                className="flex items-center gap-2 text-lg font-medium mb-3"
+                className="font-gilmer flex items-center gap-2 text-lg font-medium mb-3"
                 style={{ color: "#D1D5DB" }}
               >
                 <Phone size={20} />
-                <a href="tel:+919048170077" className="hover:underline">
+                <a
+                  href="tel:+919048170077"
+                  className="hover:underline font-gilmer"
+                >
                   +91 90481 70077
                 </a>
               </div>
               <div
-                className="flex items-center gap-2 text-lg font-medium mb-3"
+                className="font-gilmer flex items-center gap-2 text-lg font-medium mb-3"
                 style={{ color: "#D1D5DB" }}
               >
                 <Mail size={20} />
                 <a
                   href="mailto:info@scaleupconclave.com"
-                  className="hover:underline"
+                  className="hover:underline font-gilmer"
                 >
                   info@scaleupconclave.com
                 </a>
@@ -120,10 +123,10 @@ function Footer() {
               <img
                 src="/assets/images/ai_summit_icon.svg"
                 alt="The AI Summit logo"
-                width={150}
-                height={70}
+                width={140}
+                height={60}
               />
-              <p className="text-base" style={{ color: "#D1D5DB" }}>
+              <p className="text-base font-gilmer" style={{ color: "#D1D5DB" }}>
                 <strong>Location:</strong> Al Shifa Convention Center, <br />{" "}
                 Perinthalmanna
               </p>
@@ -139,12 +142,13 @@ function Footer() {
           </div>
 
           <div
-            className="mb-16 pb-8 pl-24"
+            className="mb-16 mt-20 pb-8 p-2 md:pl-59"
             style={{ borderColor: "rgba(107, 114, 128, 0.5)" }}
           >
+            {" "}
             <p
-              className="text-center mb-18 md:text-left text-sm"
-              style={{ color: "#9CA3AF" }}
+              className="font-gilmer text-center mb-15 md:text-left text-lg"
+              style={{ color: "#FFFFFF", fontSize: "18px", fontWeight: "200" }}
             >
               © 2026 ScaleUp Conclave. All rights reserved.
             </p>

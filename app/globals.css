@@ -1,5 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@font-face {
+  font-family: "Gilmer";
+  src: url("/fonts/Gilmer-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /*  ---break--- */
 @custom-variant dark (&:is(.dark *));
 
@@ -48,7 +58,6 @@
 }
 
 body {
-  font-family: "Gilmer", sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   margin: 0;

@@ -4,11 +4,10 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="p-2">
-      {" "}
+    <div>
       <nav
         style={{ backgroundColor: "var(--color-bg)" }}
-        className="w-full shadow-sm rounded-4xl px-9 py-3 my-3"
+        className="w-full shadow-sm rounded-4xl px-7 py-3 my-3"
       >
         <div className="flex justify-between items-center">
           {/* Left Logo */}
@@ -16,21 +15,34 @@ function Navbar() {
             <img
               src="/assets/images/icon.svg"
               alt="ScaleUp 2025"
-              className="h-8 md:h-10"
+              className="h-6 md:h-10"
             />
           </div>
 
           {/* Center Text */}
           <div
-            className="text-sm md:text-base font-medium text-center"
+            className="text-[8px] md:text-base text-center"
             style={{ color: "var(--color-text)" }}
           >
             <span>Previous editions:&nbsp;</span>
-            <a href="#" className="hover:underline">
+            <a
+              href="https://scaleup2025.netlify.app/"
+              className="hover:underline font-bold"
+            >
               2024
             </a>
             <span className="mx-1">|</span>
-            <a href="https://dubai.scaleupconclave.com/" className="hover:underline">
+            <a
+              href="https://2024.scaleupconclave.com/"
+              className="hover:underline font-bold"
+            >
+              2025
+            </a>
+            <span className="mx-1">|</span>
+            <a
+              href="https://dubai.scaleupconclave.com/"
+              className="hover:underline font-bold"
+            >
               ScaleUp Dubai
             </a>
           </div>
@@ -40,7 +52,7 @@ function Navbar() {
             <img
               src="/assets/images/ai_summit_blue.svg"
               alt="The AI Summit"
-              className="h-8 md:h-10"
+              className="h-6 md:h-10"
             />
           </div>
         </div>

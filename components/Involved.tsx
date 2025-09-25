@@ -1,33 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const cards = [
   {
     id: 1,
-    highlighted: false,
-    icon: "/assets/images/rectangle_blue.svg",
-    arrow: "/assets/images/arrow_icon_blue.svg",
     title: "Become a Sponsor",
-    description:
-      "Partner with us to shape the future of AI innovation.",
+    description: "Partner with us to shape the future of AI innovation.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLScvtPBj8e9o1v2s7heNDGGW_iz2AwCQB_FKBqEv2OKITxcyzg/viewform",
   },
   {
     id: 2,
-    highlighted: true,
-    icon: "/assets/images/rectangle_green.svg",
-    arrow: "/assets/images/arrow_icon_green.svg",
     title: "Become a Speaker",
-    description:
-      "Share your expertise and insights with the AI community.",
+    description: "Share your expertise and insights with the AI community.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSfAZZpitA5SliZ1ivPH0PmQled6eyuyaHUnKLIY5TP1YXjRIQ/viewform",
   },
   {
     id: 3,
-    highlighted: false,
-    icon: "/assets/images/rectangle_blue.svg",
-    arrow: "/assets/images/arrow_icon_blue.svg",
     title: "Become an Exhibitor",
     description:
       "Showcase your AI solutions and connect with industry leaders.",
@@ -35,73 +24,150 @@ const cards = [
   },
   {
     id: 4,
-    highlighted: false,
-    icon: "/assets/images/rectangle_blue.svg",
-    arrow: "/assets/images/arrow_icon_blue.svg",
     title: "Join as Volunteer",
-    description:
-      "Be part of the organizing team and gain valuable experience.",
+    description: "Be part of the organizing team and gain valuable experience.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSccyRPittAjflEQYAdpnfXjQ4MoA1xNs6LnwwkrX8Y0Stas7g/viewform",
   },
 ];
 
 function Involved() {
+  const [activeCard, setActiveCard] = useState(2);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 480);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <section className="mx-auto max-w-8xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="flex items-start justify-between mb-12">
-        <div>
-          <h2 className="text-4xl font-bold" style={{ color: "#111827" }}>
+    <section
+      style={{
+        maxWidth: isMobile ? "350px" : "1400px",
+        margin: "0 auto",
+        padding: isMobile ? "30px 10px" : "64px 24px",
+      }}
+    >
+      <div className="flex justify-between items-start mb-12 flex-wrap">
+        <div className="basis-[60%] flex-1">
+          <p
+            className="text-[35px] leading-tight sm:text-[48px] md:text-[57px] font-semibold m-0"
+            style={{ color: "#202020" }}
+          >
             Get Involved
-          </h2>
-          <p className="mt-4 text-lg" style={{ color: "#4B5563" }}>
-            Be part of Kerala's biggest AI & Technology Conclave and connect <br />
+          </p>
+          <p
+            className="mt-4 text-[18px] leading-6 sm:text-[18px] sm:leading-7 md:text-[28px] md:leading-9 font-light"
+            style={{ color: "#4B5563" }}
+          >
+            Be part of Kerala's biggest AI & Technology Conclave and connect{" "}
+            <br />
             with innovators, leaders, and enthusiasts from across the country.
           </p>
         </div>
+
         <img
           src="/assets/images/img_icon2.svg"
           alt="Decorative icons"
-          className="hidden h-8 sm:block"
+          className={`h-8 ${isMobile ? "hidden" : "block"}`}
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {cards.map((card) => (
-          <div
-            key={card.id}
-            className="flex h-full flex-col justify-between rounded-3xl border p-8 shadow-sm transition hover:shadow-lg"
-            style={{
-              borderColor: "#000000",
-              backgroundColor: card.highlighted ? "#3B82F6" : "#FFFFFF",
-              color: card.highlighted ? "#FFFFFF" : "#1F2937",
-            }}
-          >
-            <div>
-              <img src={card.icon} alt="Card icon" className="h-12 w-12" />
-              <h3 className="mt-8 text-2xl font-bold">{card.title}</h3>
-              <p className="mt-4 text-base leading-relaxed">
-                {card.description}
-              </p>
-            </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          overflowX: "auto",
+          paddingBottom: "16px",
+          scrollSnapType: "x mandatory",
+        }}
+      >
+        {cards.map((card) => {
+          const isActive = activeCard === card.id;
+          const icon = isActive
+            ? "/assets/images/rectangle_green.svg"
+            : "/assets/images/rectangle_blue.svg";
+          const arrow = isActive
+            ? "/assets/images/arrow_icon_green.svg"
+            : "/assets/images/arrow_icon_blue.svg";
 
-            <a
-              href={card.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 flex items-center justify-between group cursor-pointer"
-              style={{ color: card.highlighted ? "#FFFFFF" : "#1F2937" }}
+          return (
+            <div
+              key={card.id}
+              onClick={() => setActiveCard(card.id)}
+              style={{
+                flex: "0 0 auto",
+                width: isMobile ? "216.11px" : "310.53px",
+                height: isMobile ? "271.11px" : "389.54px",
+                borderRadius: isMobile ? "26.86px" : "38.59px",
+                border: isMobile ? "0.7px solid #000" : "1px solid #000",
+                padding: isMobile ? "12px" : "30px",
+                backgroundColor: isActive ? "#1E90FF" : "#FFFFFF",
+                color: isActive ? "#FFFFFF" : "#202020",
+                boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                cursor: "pointer",
+                scrollSnapAlign: "start",
+                transition: "all 0.3s",
+              }}
             >
-              <span className="font-semibold group-hover:underline">
-                Apply Now
-              </span>
-              <img
-                src={card.arrow}
-                alt="Arrow icon"
-                className="h-14 w-16 transition-transform group-hover:translate-x-1"
-              />
-            </a>
-          </div>
-        ))}
+              <div>
+                <img
+                  src={icon}
+                  alt="Card icon"
+                  style={{ height: "40px", width: "40px" }}
+                />
+                <h3
+                  style={{
+                    marginTop: "24px",
+                    fontSize: isMobile ? "18px" : "24px",
+                    fontWeight: 700,
+                  }}
+                >
+                  {card.title}
+                </h3>
+                <p
+                  style={{
+                    marginTop: "12px",
+                    fontSize: isMobile ? "14px" : "16px",
+                    lineHeight: "22px",
+                  }}
+                >
+                  {card.description}
+                </p>
+              </div>
+
+              <a
+                href={card.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  marginTop: "12px",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  textDecoration: "none",
+                  fontWeight: 600,
+                  fontSize: isMobile ? "14px" : "16px",
+                  color: isActive ? "#FFFFFF" : "#1E90FF",
+                }}
+              >
+                <span>Apply Now</span>
+                <img
+                  src={arrow}
+                  alt="Arrow icon"
+                  style={{
+                    height: isMobile ? "40px" : "56px",
+                    width: isMobile ? "48px" : "64px",
+                  }}
+                />
+              </a>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
