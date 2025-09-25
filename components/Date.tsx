@@ -110,7 +110,7 @@ function DateSection() {
           className="font-gilmer mt-3 text-xs sm:text-sm md:text-xl"
           style={{ color: "#4B5563" }}
         >
-          Keralas biggest AI & Technology Conclave
+          Kerala's biggest AI & Technology Conclave
         </p>
       </div>
     </section>
