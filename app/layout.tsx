@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "ScaleUp Conclave",
   description: "Modern landing page built with Next.js and Tailwind CSS",
+  icons: {
+    icon: "/favicon.ico", 
+  },
 };
 
 export default function RootLayout({

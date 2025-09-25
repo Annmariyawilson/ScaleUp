@@ -43,7 +43,7 @@ function Navbar() {
               href="https://dubai.scaleupconclave.com/"
               className="underline font-bold"
             >
-              ScaleUp Dubai
+            Dubai
             </a>
           </div>
 

@@ -107,7 +107,7 @@ function Involved() {
                     className="h-12 w-12"
                   />
                   <img
-                    src={card.icon}
+                    src={card.icon} 
                     alt={card.title}
                     className="absolute inset-0 m-auto h-6 w-6"
                   />
