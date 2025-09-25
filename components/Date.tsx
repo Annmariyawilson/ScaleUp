@@ -5,8 +5,8 @@ import React, { useEffect, useState } from "react";
 function DateSection() {
   const targetDate = new Date("2026-01-17T09:00:00");
   const [timeLeft, setTimeLeft] = useState({
-    months: "00",
     days: "00",
+    hours: "00",
     minutes: "00",
     seconds: "00",
   });
@@ -18,7 +18,7 @@ function DateSection() {
 
       if (diff <= 0) {
         clearInterval(interval);
-        setTimeLeft({ months: "00", days: "00", minutes: "00", seconds: "00" });
+        setTimeLeft({ days: "00", hours: "00", minutes: "00", seconds: "00" });
         return;
       }
 
@@ -27,14 +27,12 @@ function DateSection() {
       const totalMinutes = Math.floor(totalSeconds / 60);
       const minutes = totalMinutes % 60;
       const totalHours = Math.floor(totalMinutes / 60);
-      const days = totalHours >= 24 ? Math.floor(totalHours / 24) : 0;
-
-      const months = Math.floor(days / 30);
-      const remainingDays = days % 30;
+      const hours = totalHours % 24;
+      const days = Math.floor(totalHours / 24);
 
       setTimeLeft({
-        months: String(months).padStart(2, "0"),
-        days: String(remainingDays).padStart(2, "0"),
+        days: String(days).padStart(2, "0"),
+        hours: String(hours).padStart(2, "0"),
         minutes: String(minutes).padStart(2, "0"),
         seconds: String(seconds).padStart(2, "0"),
       });
