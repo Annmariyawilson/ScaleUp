@@ -20,7 +20,8 @@ const cards = [
   {
     id: 3,
     title: "Become an Exhibitor",
-    description: "Showcase your AI solutions and connect with industry leaders.",
+    description:
+      "Showcase your AI solutions and connect with industry leaders.",
     link: "https://docs.google.com/forms/d/e/1FAIpQLSdAu78_Eh1Cbt-_M4k6YBSZe-kOnuSdcC4TBqNdF3yDFfZCQw/viewform",
     icon: "/assets/images/svg03.svg",
   },
@@ -107,7 +108,10 @@ function Involved() {
                     className="h-12 w-12"
                   />
                   <img
-                    src={card.icon} 
+                    src={card.icon}
+                    style={{
+                      filter: isActive ? "none" : "brightness(0) invert(1)",
+                    }}
                     alt={card.title}
                     className="absolute inset-0 m-auto h-6 w-6"
                   />
