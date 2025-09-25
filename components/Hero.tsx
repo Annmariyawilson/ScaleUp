@@ -5,49 +5,49 @@ function Hero() {
   return (
     <section className="w-full flex flex-col items-center px-2 py-2 relative overflow-hidden">
       {/* --- RESPONSIVE HEADING SECTION --- */}
-<div className="text-right md:text-center mb-8">
-  {/* First Line */}
-  <h1 className="text-xl md:text-[85px] mb-2 md:mb-18">
-    <span
-      style={{ color: "#418CFF", fontWeight: "600" }}
-      className="font-gilmer md:ml-90"
-    >
-      ScaleUp Conclave{" "}
-    </span>
-    <img
-      src="/assets/images/v.svg"
-      alt="icon"
-      className="inline-block w-5 h-5 md:w-[60px] md:h-[60px]"
-    />
-  </h1>
+      <div className="text-right md:text-center mb-8">
+        {/* First Line */}
+        <h1 className="text-xl md:text-[85px] mb-2 md:mb-18">
+          <span
+            style={{ color: "#418CFF", fontWeight: "600" }}
+            className="font-gilmer md:ml-90"
+          >
+            ScaleUp Conclave{" "}
+          </span>
+          <img
+            src="/assets/images/v.svg"
+            alt="icon"
+            className="inline-block w-5 h-5 md:w-[60px] md:h-[60px]"
+          />
+        </h1>
 
-  {/* Second Line */}
-  <h1
-    className="text-right text-5xl sm:text-6xl -mb-10 -mt-4 md:text-[180px] md:-mt-29 md:mb-5"
-    style={{ color: "#4028C8" }}
-  >
-    <span
-      className="font-gilmer tracking-tight sm:text-6xl md:text-[140px] lg:text-[170px]"
-      style={{ color: "#060832" }}
-    >
-      The
-    </span>{" "}
-    <span
-      className="font-gilmer tracking-tight md:text-[140px] lg:text-[170px]"
-      style={{ fontWeight: "700" }}
-    >
-      Ai Summit
-    </span>
-  </h1>
-</div>
+        {/* Second Line */}
+        <h1
+          className="text-right text-5xl sm:text-6xl -mb-10 -mt-4 md:text-[180px] md:-mt-29 md:mb-5"
+          style={{ color: "#4028C8" }}
+        >
+          <span
+            className="font-gilmer tracking-tight sm:text-6xl md:text-[140px] lg:text-[170px]"
+            style={{ color: "#060832" }}
+          >
+            The
+          </span>{" "}
+          <span
+            className="font-gilmer tracking-tight md:text-[140px] lg:text-[170px]"
+            style={{ fontWeight: "700" }}
+          >
+            Ai Summit
+          </span>
+        </h1>
+      </div>
 
       {/* --- MAIN CARD --- */}
-<div
-  className="w-full max-w-md md:max-w-full rounded-3xl md:rounded-4xl 
+      <div
+        className="w-full max-w-md md:max-w-full rounded-3xl md:rounded-4xl 
              p-6 md:p-10 relative flex flex-col justify-between 
              mt-0 md:-mt-[76px] leading-normal md:leading-relaxed"
-  style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
->
+        style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
+      >
         {/* Top Right Icon */}
         <div className="absolute top-6 right-6">
           <img
@@ -66,7 +66,7 @@ function Hero() {
               className="font-gilmer font-bold underline underline-offset-4 decoration-[3px]"
               style={{ textDecorationColor: "#9CF694" }}
             >
-              2026 
+              2026
             </span>{" "}
             <br /> is back and this <br className="block md:hidden" /> time,{" "}
             <span

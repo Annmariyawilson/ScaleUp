@@ -86,13 +86,13 @@ function DateSection() {
               className="flex flex-col items-center min-w-[50px] md:min-w-auto"
             >
               <span
-                className="text-3xl sm:text-4xl md:text-8xl tracking-[0.10em]"
-                style={{ color: "#000000", fontWeight: "600" }}
+                className="text-4xl  sm:text-4xl md:text-8xl tracking-[0.10em]"
+                style={{ color: "#000000", fontWeight: "700" }}
               >
                 {value}
               </span>
               <span
-                className="border rounded-full px-4 py-1 sm:px-6 md:px-12 md:py-1 -mt-1 sm:-mt-2 md:-mt-4 text-xs sm:text-sm md:text-base"
+                className="border rounded-full sm:px-6 px-5 py-1 md:px-14 md:py-1 -mt-2 sm:-mt-2 md:-mt-4 text-xs sm:text-sm md:text-base"
                 style={{
                   backgroundColor: "#FFFFFF",
                   borderColor: "#000000",
