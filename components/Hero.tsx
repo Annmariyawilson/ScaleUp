@@ -23,7 +23,7 @@ function Hero() {
 
   {/* Second Line */}
   <h1
-    className="text-right text-5xl sm:text-6xl -mb-9 -mt-4 md:text-[180px] md:-mt-29 md:mb-5"
+    className="text-right text-5xl sm:text-6xl -mb-10 -mt-4 md:text-[180px] md:-mt-29 md:mb-5"
     style={{ color: "#4028C8" }}
   >
     <span
@@ -53,22 +53,22 @@ function Hero() {
           <img
             src="/assets/images/img_icon2.svg"
             alt="icons"
-            className="w-8 sm:w-10 md:w-[120px]"
+            className="w-16 sm:w-10 md:w-[120px]"
           />
         </div>
 
         {/* Top Section of Card */}
         <div>
           {/* Tagline */}
-          <p className="font-gilmer text-2xl sm:text-3xl md:text-5xl font-normal leading-tight md:leading-normal">
-            ScaleUp Conclave{" "}
+          <p className="font-gilmer text-3xl sm:text-3xl md:text-5xl font-normal leading-tight md:leading-normal">
+            ScaleUp <br className="block md:hidden" /> Conclave{" "}
             <span
               className="font-gilmer font-bold underline underline-offset-4 decoration-[3px]"
               style={{ textDecorationColor: "#9CF694" }}
             >
-              2026
+              2026 
             </span>{" "}
-            <br /> is back and this time,{" "}
+            <br /> is back and this <br className="block md:hidden" /> time,{" "}
             <span
               className="font-gilmer font-bold underline underline-offset-4 decoration-[3px]"
               style={{ textDecorationColor: "#9CF694" }}
@@ -92,7 +92,7 @@ function Hero() {
               Jan 17th & 18th, 2026
             </button>
             <button
-              className="font-gilmer text-left px-4 py-2 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl text-sm text-white"
+              className="font-gilmer text-center px-4 py-2 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl text-sm text-white"
               style={{ border: "1px solid #4B4DFF" }}
             >
               Shifa Convention Center
@@ -103,7 +103,7 @@ function Hero() {
         </div>
 
         {/* Bottom Section of Card */}
-        <div className="mt-8 md:mt-0">
+        <div className="mt-18 md:mt-0">
           {/* Arrow */}
           <div className="flex justify-start">
             <img
