@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import Involved from "@/components/Involved";
 import Navbar from "@/components/Navbar";
 import { Whatsapp } from "@/components/whatsapp";
+import Marque from "@/components/Marque";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function Home() {
   return (
     <main className="flex flex-col overflow-hidden">
       <Navbar />
+      <Marque/>
       <Hero />
       <Date />
       <Banner />
