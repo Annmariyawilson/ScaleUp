@@ -89,7 +89,7 @@ function Hero() {
                 width={18}
                 height={18}
               />
-              March 27th & 28th, 2026
+              March 25th & 26th, 2026
             </button>
             <button
               className="font-gilmer text-center px-4 py-2 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl text-sm text-white"
@@ -131,7 +131,7 @@ function Hero() {
               width={18}
               height={18}
             />
-            March 27th & 28th, 2026
+            March 25th & 26th, 2026
           </button>
           <button
             className="font-gilmer flex flex-col justify-center px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl h-[50px] leading-tight text-sm"
