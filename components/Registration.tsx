@@ -43,8 +43,8 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
     previousAttendance: "",
   });
 
-  console.log("allCountries allCountries", allCountries);
-
+  console.log("allCountries allCountries",allCountries);
+  
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -83,36 +83,36 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   };
 
   //commented oct30
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form6666666666666666666666submitted:", formData);
     const url = "https://api.makemypass.com/makemypass/public-form/f9290cc6-d840-4492-aefb-76f189df5f5e/validate-rsvp/";
-    const formData1 = new FormData();
-    formData1.append("name", formData.name);
-    formData1.append("phone", formData.countryCode + formData.phone);
-    formData1.append("email", formData.email);
-    formData1.append("district", formData.district);
-    formData1.append("organization", formData.organization);
-    formData1.append("category", formData.category);
-    formData1.append(
-      "did_you_attend_the_previous_scaleup_conclave_",
-      "Yes"
-    );
-    try {
-      const response = await fetch(url, {
-        method: "POST",
-        body: formData1
-      });
-      const result = await response.json();
-      console.log("Success:", result);
-      if (result.statusCode === 400) {
-        result.message?.email && toast.error(result.message?.email);
-        result.message?.phone && toast.error(result.message?.phone);
-        return;
+      const formData1 = new FormData();
+      formData1.append("name", formData.name);
+      formData1.append("phone", formData.countryCode + formData.phone);
+      formData1.append("email", formData.email);
+      formData1.append("district", formData.district);
+      formData1.append("organization", formData.organization);
+      formData1.append("category",formData.category );
+      formData1.append(
+        "did_you_attend_the_previous_scaleup_conclave_",
+        "Yes"
+      );
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          body: formData1
+        });
+        const result = await response.json();
+        console.log("Success:", result);
+        if (result.statusCode === 400) {
+          result.message?.email && toast.error(result.message?.email);
+          result.message?.phone && toast.error(result.message?.phone);
+          return;
+        }
+      } catch (error) {
+        console.error("API Error:", error);
       }
-    } catch (error) {
-      console.error("API Error:", error);
-    }
     setStep("ticket");
   };
 
@@ -169,7 +169,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
 
       const response = await fetch(
         "https://api.makemypass.com/makemypass/public-form/f9290cc6-d840-4492-aefb-76f189df5f5e/submit/",
-
+        
         {
           method: "POST",
           body: payload,
@@ -202,7 +202,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
         console.error("❌ API Validation Error:", firstError);
         return;
       }
-      setLoading(false);
+    setLoading(false);
 
 
       // ❌ Unknown error
@@ -242,9 +242,9 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
           className="absolute top-1/2 md:top-1/2 lg:top-1/2 right-0 transform -translate-y-1/2 
              w-full lg:w-1/2 p-6 bg-white shadow-lg 
              max-h-[100vh] overflow-y-auto 
-             transition-transform duration-300 ease-in-out"
+             transition-transform duration-300 ease-in-out" 
 
-
+          
           // absolute top-1/2 lg:right-0 lg:-translate-x-0 lg:left-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-fit bg-white shadow-2xl overflow-y-auto rounded-2xl
           style={{
             // width: isMobile ? "100%" : modalWidth,
@@ -270,7 +270,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               setStep={setStep}
               modalWidth={modalWidth}
               handleRegister={handleRegister}
-              loading={loading}
+              loading = {loading}
             />
           )}
 
@@ -287,7 +287,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               onClose={onClose}
               setStep={setStep}
               modalWidth={modalWidth}
-              ticketID={ticketID}
+              ticketID = {ticketID}
             />
           )}
         </div>
@@ -355,7 +355,7 @@ function RegistrationForm({
         Register Now!
       </h1>
 
-      <p className="text-sm md:text-base mt-1 font-semibold text-start" style={{ color: "#3E3E3E" }}>
+      <p className="text-sm md:text-base mt-1 font-semibold text-start" style={{color:"#3E3E3E"}}>
         Secure your spot and be part of the excitement! Register now to receive your entry pass.
       </p>
 
@@ -385,31 +385,18 @@ function RegistrationForm({
             Phone Number <span className="text-red-500">*</span>
           </label>
           <div className="mt-1 flex gap-2">
-            {/* <select
+            <select
               name="countryCode"
               value={formData.countryCode}
               onChange={handleChange}
               className="w-20 pl-2 border rounded-lg text-gray-700 overflow-y-auto"
               // className="w-20 pl-2 border rounded-lg h-[40px] text-gray-700"
               style={getBoxStyle("countryCode")}
-            > */}
-            <select
-              name="countryCode"
-              value={formData.countryCode}
-              onChange={(e) => {
-                handleChange(e);
-                e.target.blur(); // Closes the dropdown after selection
-              }}
-              // When focused, show 5 items. When not focused, show 1.
-              onFocus={(e) => (e.target.size = 5)}
-              onBlur={(e) => (e.target.size = 1)}
-              className="w-20 pl-2 border rounded-lg text-gray-700 overflow-y-auto"
-              style={getBoxStyle("countryCode")}
             >
               <option value="+91">+91</option>
               {allCountries && allCountries.length > 0 ? (
                 allCountries.map((country, index) => (
-                  <option key={index} value={"+" + country.dialCode}>
+                  <option key={index} value={"+"+country.dialCode}>
                     +{country.dialCode}
                   </option>
                 ))
@@ -576,7 +563,7 @@ function TicketTypeModal({
   setStep: React.Dispatch<React.SetStateAction<"form" | "ticket" | "success">>;
   modalWidth: string;
   handleRegister: () => void;
-  loading: boolean;
+  loading:boolean;
 }) {
   const [selectedTicket, setSelectedTicket] = useState<"general" | "vip" | null>("general");
 
@@ -592,7 +579,7 @@ function TicketTypeModal({
           className="text-gray-500 hover:text-red-600 transition"
         >
           {/* <X size={20} style={{ color: "red" }} /> */}
-          <MoveLeft size={30} style={{ color: "black" }} />
+          <MoveLeft size={30} style={{ color: "black" }}/>
         </button>
 
         {/* Right: Image */}
@@ -617,7 +604,7 @@ function TicketTypeModal({
         <h2 className="text-3xl font-bold text-gray-900 mb-2 leading-tight">
           Select Ticket Type
         </h2>
-        <p className="text-sm  max-w-md leading-relaxed" style={{ color: "#3E3E3E" }}>
+        <p className="text-sm  max-w-md leading-relaxed" style={{color:"#3E3E3E"}}>
           Select the type of pass that suits you best
         </p>
       </div>
@@ -723,7 +710,7 @@ function SuccessModal({
 }) {
   return (
     // <div className="flex items-center justify-center h-full relative p-6 ">
-
+      
     //   <button
     //     onClick={() => {
     //       setStep("form");
@@ -753,44 +740,44 @@ function SuccessModal({
     // </div>
 
 
-    <div className="flex flex-col items-center justify-center min-h-[90vh]  relative p-6">
-      <button
-        onClick={() => {
-          setStep("form");
-          onClose();
-        }}
-        className="absolute top-4 left-4 text-gray-500 hover:text-red-600 transition"
-        style={{ color: "red" }}
-      >
-        <X size={24} style={{ color: "red" }} />
-      </button>
+<div className="flex flex-col items-center justify-center min-h-[90vh]  relative p-6">
+  <button
+    onClick={() => {
+      setStep("form");
+      onClose();
+    }}
+    className="absolute top-4 left-4 text-gray-500 hover:text-red-600 transition"
+    style={{ color: "red" }}
+  >
+    <X size={24} style={{ color: "red" }} />
+  </button>
 
-      <div className="text-center mx-auto w-full max-w-md">
-        <h2 className="text-5xl font-bold mt-8" style={{ color: "#4028C8" }}>
-          {/* You’re In! */}
-          Your Ticket Is Confirmed!
-        </h2>
-        <div className="flex justify-center gap-4 mt-6 flex-wrap">
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/scaleUp_Village"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#4028C8] text-[#4028C8] hover:bg-[#4028C8] hover:text-white transition"
-          >
-            <Instagram size={18} />
-            Follow on Instagram
-          </a>
+  <div className="text-center mx-auto w-full max-w-md">
+    <h2 className="text-5xl font-bold mt-8" style={{ color: "#4028C8" }}>
+      {/* You’re In! */}
+      Your Ticket Is Confirmed!
+    </h2>
+    <div className="flex justify-center gap-4 mt-6 flex-wrap">
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/scaleUp_Village"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#4028C8] text-[#4028C8] hover:bg-[#4028C8] hover:text-white transition"
+  >
+    <Instagram size={18} />
+    Follow on Instagram
+  </a>
 
-          {/* WhatsApp */}
-
-          <a
-            href="https://chat.whatsapp.com/DDdiTix9PosBX7PMLrB74U"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
-          >
-            <svg
+  {/* WhatsApp */}
+  
+  <a
+    href="https://chat.whatsapp.com/DDdiTix9PosBX7PMLrB74U"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-5 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+  >
+   <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -804,50 +791,50 @@ function SuccessModal({
             >
               <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
             </svg>
-            Join WhatsApp Group
-          </a>
-        </div>
+    Join WhatsApp Group
+  </a>
+</div>
 
-        <p className="text-md mt-4" style={{ color: "#3E3E3E" }}>
-          Your spot is confirmed — Your event ticket has been sent to your email.
-          Please check your inbox for confirmation and entry details.</p>
+    <p className="text-md mt-4" style={{ color: "#3E3E3E" }}>
+      Your spot is confirmed — Your event ticket has been sent to your email.
+    Please check your inbox for confirmation and entry details.</p>
+    
+    <a
+  href={`https://app.makemypass.com/scaleup-conclave-2026/view-ticket/${ticketID}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center mt-5 gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#4028C8] to-[#6B5CFF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+>
+   View Ticket
+</a>
 
-        <a
-          href={`https://app.makemypass.com/scaleup-conclave-2026/view-ticket/${ticketID}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center mt-5 gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#4028C8] to-[#6B5CFF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-        >
-          View Ticket
+
+
+    <div className="flex justify-center items-center mt-6">
+      <img
+        src="/assets/images/abouticons.svg"
+        alt="About Icons"
+        className="w-16 md:w-20 h-auto"
+      />
+    </div>{/* Contact Info */}
+    <div className="mt-8 text-sm text-gray-600">
+      <p className="font-medium">For any inquiries, reach out to us</p>
+      <p className="mt-2">
+        <a href="tel:+919048170077" className="hover:underline text-[#4c2cff]">
+          +91 90481 70077
         </a>
-
-
-
-        <div className="flex justify-center items-center mt-6">
-          <img
-            src="/assets/images/abouticons.svg"
-            alt="About Icons"
-            className="w-16 md:w-20 h-auto"
-          />
-        </div>{/* Contact Info */}
-        <div className="mt-8 text-sm text-gray-600">
-          <p className="font-medium">For any inquiries, reach out to us</p>
-          <p className="mt-2">
-            <a href="tel:+919048170077" className="hover:underline text-[#4c2cff]">
-              +91 90481 70077
-            </a>
-          </p>
-          <p>
-            <a
-              href="mailto:info@scaleupconclave.com"
-              className="hover:underline text-[#4c2cff]"
-            >
-              info@scaleupconclave.com
-            </a>
-          </p>
-        </div>
-      </div>
+      </p>
+      <p>
+        <a
+          href="mailto:info@scaleupconclave.com"
+          className="hover:underline text-[#4c2cff]"
+        >
+          info@scaleupconclave.com
+        </a>
+      </p>
     </div>
+  </div>
+</div>
 
 
   );
