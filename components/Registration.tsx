@@ -2,7 +2,7 @@
 
 "use client";
 
-import { Instagram, X } from "lucide-react";
+import { Instagram, MoveLeft, X } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { allCountries } from "country-telephone-data";
@@ -563,7 +563,8 @@ function TicketTypeModal({
           onClick={() => setStep("form")}
           className="text-gray-500 hover:text-red-600 transition"
         >
-          <X size={20} style={{ color: "red" }} />
+          {/* <X size={20} style={{ color: "red" }} /> */}
+          <MoveLeft size={30} style={{ color: "black" }}/>
         </button>
 
         {/* Right: Image */}
