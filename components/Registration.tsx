@@ -2,7 +2,7 @@
 
 "use client";
 
-import { X } from "lucide-react";
+import { Instagram, X } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { allCountries } from "country-telephone-data";
@@ -42,6 +42,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   const [isMobile, setIsMobile] = useState(false);
   const [step, setStep] = useState<"form" | "ticket" | "success">("form");
   const [modalWidth, setModalWidth] = useState("50%");
+  const [ticketID, setTicketID] = useState("");
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,9 +74,36 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   };
 
   //commented oct30
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form6666666666666666666666submitted:", formData);
+    const url = "https://api.makemypass.com/makemypass/public-form/f9290cc6-d840-4492-aefb-76f189df5f5e/validate-rsvp/";
+      const formData1 = new FormData();
+      formData1.append("name", formData.name);
+      formData1.append("phone", formData.countryCode + formData.phone);
+      formData1.append("email", formData.email);
+      formData1.append("district", formData.district);
+      formData1.append("organization", formData.organization);
+      formData1.append("category",formData.category );
+      formData1.append(
+        "did_you_attend_the_previous_scaleup_conclave_",
+        "Yes"
+      );
+      try {
+        const response = await fetch(url, {
+          method: "POST",
+          body: formData1
+        });
+        const result = await response.json();
+        console.log("Success:", result);
+        if (result.statusCode === 400) {
+          result.message?.email && toast.error(result.message?.email);
+          result.message?.phone && toast.error(result.message?.phone);
+          return;
+        }
+      } catch (error) {
+        console.error("API Error:", error);
+      }
     setStep("ticket");
   };
 
@@ -132,6 +160,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
 
       const response = await fetch(
         "https://api.makemypass.com/makemypass/public-form/f9290cc6-d840-4492-aefb-76f189df5f5e/submit/",
+        
         {
           method: "POST",
           body: payload,
@@ -149,6 +178,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
       // ✅ SUCCESS
       if (!result.hasError && response.ok) {
         toast.success("Registration successful!");
+        setTicketID(result.response.event_register_id);
         console.log("✅ Registrationsuccessfulskkkkkkkkkkkkkkkkkk:", result);
         setStep("success");
         return;
@@ -245,6 +275,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               onClose={onClose}
               setStep={setStep}
               modalWidth={modalWidth}
+              ticketID = {ticketID}
             />
           )}
         </div>
@@ -653,10 +684,12 @@ function SuccessModal({
   onClose,
   setStep,
   modalWidth,
+  ticketID
 }: {
   onClose: () => void;
   setStep: React.Dispatch<React.SetStateAction<"form" | "ticket" | "success">>;
   modalWidth: string;
+  ticketID: string
 }) {
   return (
     // <div className="flex items-center justify-center h-full relative p-6 ">
@@ -704,11 +737,61 @@ function SuccessModal({
 
   <div className="text-center mx-auto w-full max-w-md">
     <h2 className="text-5xl font-bold mt-8" style={{ color: "#4028C8" }}>
-      You’re In!
+      {/* You’re In! */}
+      Your Ticket Is Confirmed!
     </h2>
+    <div className="flex justify-center gap-4 mt-6 flex-wrap">
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/scaleUp_Village"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#4028C8] text-[#4028C8] hover:bg-[#4028C8] hover:text-white transition"
+  >
+    <Instagram size={18} />
+    Follow on Instagram
+  </a>
+
+  {/* WhatsApp */}
+  
+  <a
+    href="https://chat.whatsapp.com/DDdiTix9PosBX7PMLrB74U"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-5 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+  >
+   <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-message-circle h-5 w-5 md:h-7 md:w-7"
+            >
+              <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+            </svg>
+    Join WhatsApp Group
+  </a>
+</div>
+
     <p className="text-md mt-4" style={{ color: "#3E3E3E" }}>
       Your spot is confirmed — Your event ticket has been sent to your email.
     Please check your inbox for confirmation and entry details.</p>
+    
+    <a
+  href={`https://app.makemypass.com/scaleup-conclave-2026/view-ticket/${ticketID}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center mt-5 gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#4028C8] to-[#6B5CFF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+>
+   View Ticket
+</a>
+
+
 
     <div className="flex justify-center items-center mt-6">
       <img
@@ -716,6 +799,22 @@ function SuccessModal({
         alt="About Icons"
         className="w-16 md:w-20 h-auto"
       />
+    </div>{/* Contact Info */}
+    <div className="mt-8 text-sm text-gray-600">
+      <p className="font-medium">For any inquiries, reach out to us</p>
+      <p className="mt-2">
+        <a href="tel:+919048170077" className="hover:underline text-[#4c2cff]">
+          +91 90481 70077
+        </a>
+      </p>
+      <p>
+        <a
+          href="mailto:info@scaleupconclave.com"
+          className="hover:underline text-[#4c2cff]"
+        >
+          info@scaleupconclave.com
+        </a>
+      </p>
     </div>
   </div>
 </div>
