@@ -6,6 +6,14 @@ import { Instagram, MoveLeft, X } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { allCountries } from "country-telephone-data";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 
 interface RegistrationModalProps {
   isOpen: boolean;
@@ -43,6 +51,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   const [step, setStep] = useState<"form" | "ticket" | "success">("form");
   const [modalWidth, setModalWidth] = useState("50%");
   const [ticketID, setTicketID] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -111,7 +120,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   //sadasivan's code started here.
   const handleRegister = async () => {
     console.log("Register clicked — sending data:", formData);
-
+    setLoading(true);
     try {
       // 🧩 Simple front-end validation
       if (
@@ -193,6 +202,8 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
         console.error("❌ API Validation Error:", firstError);
         return;
       }
+    setLoading(false);
+
 
       // ❌ Unknown error
       throw new Error("Unknown API error");
@@ -259,6 +270,7 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               setStep={setStep}
               modalWidth={modalWidth}
               handleRegister={handleRegister}
+              loading = {loading}
             />
           )}
 
@@ -377,7 +389,8 @@ function RegistrationForm({
               name="countryCode"
               value={formData.countryCode}
               onChange={handleChange}
-              className="w-20 pl-2 border rounded-lg h-[40px] text-gray-700"
+              className="w-20 pl-2 border rounded-lg text-gray-700 overflow-y-auto"
+              // className="w-20 pl-2 border rounded-lg h-[40px] text-gray-700"
               style={getBoxStyle("countryCode")}
             >
               <option value="+91">+91</option>
@@ -543,12 +556,14 @@ function TicketTypeModal({
   onClose,
   setStep,
   modalWidth,
-  handleRegister
+  handleRegister,
+  loading
 }: {
   onClose: () => void;
   setStep: React.Dispatch<React.SetStateAction<"form" | "ticket" | "success">>;
   modalWidth: string;
   handleRegister: () => void;
+  loading:boolean;
 }) {
   const [selectedTicket, setSelectedTicket] = useState<"general" | "vip" | null>("general");
 
@@ -672,6 +687,7 @@ function TicketTypeModal({
         <button
           onClick={handleRegister}
           className="px-8 py-3 bg-[#418CFF] text-white font-medium rounded-full hover:bg-blue-600 transition"
+          disabled={loading}
         >
           Register
         </button>
