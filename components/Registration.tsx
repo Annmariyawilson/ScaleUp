@@ -35,6 +35,9 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
     previousAttendance: "",
   });
 
+  console.log("allCountries allCountries",allCountries);
+  
+
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [step, setStep] = useState<"form" | "ticket" | "success">("form");
@@ -50,12 +53,6 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
-
-
-
-
-
   useEffect(() => {
     if (isOpen) {
       // Disable background scroll when modal is open
@@ -69,15 +66,6 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-
-
-
-
-
-
-
-
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -184,8 +172,6 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
     }
   };
   //sadasivan's code end  here.
-
-
 
   if (!isOpen) return null;
 
@@ -364,6 +350,16 @@ function RegistrationForm({
               style={getBoxStyle("countryCode")}
             >
               <option value="+91">+91</option>
+              {allCountries && allCountries.length > 0 ? (
+                allCountries.map((country, index) => (
+                  <option key={index} value={"+"+country.dialCode}>
+                    +{country.dialCode}
+                  </option>
+                ))
+              ) : (
+                <option value="+91">+91</option>
+              )}
+
             </select>
             <input
               type="tel"
@@ -528,7 +524,7 @@ function TicketTypeModal({
   const handleSelect = (type: "general" | "vip") => setSelectedTicket(type);
 
   return (
-    <div className="p-6 lg:right-0 lg:-translate-x-0 relative">
+    <div className="p-6 h-[90vh] lg:right-0 lg:-translate-x-0 relative">
       {/* Close Button */}
       <div className="absolute top-4 left-0 right-0 flex justify-between items-center px-4">
         {/* Left: Close Button */}

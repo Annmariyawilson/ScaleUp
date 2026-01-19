@@ -9,9 +9,9 @@ function Hero() {
   return (
     <section className="w-full flex flex-col items-center px-2 py-2 relative overflow-hidden">
       {/* --- RESPONSIVE HEADING SECTION --- */}
-      <div className="w-[100%] text-right md:text-center mb-7 md:mb-8 lg:mb-7 pr-4 md:pr-6">
+      <div className="w-[100%] text-right md:text-center mb-8 md:mb-8 lg:mb-7 pr-4 md:pr-6">
         {/* First Line */}
-        <h1 className="text-[22.5px] md:text-[65px] lg:text-[76px] mb-2 md:mb-6 lg:mb-18 text-right pr-4 lg:pr-14">
+        <h1 className="text-[23.83px] md:text-[65px] lg:text-[76px] mb-2 md:mb-6 lg:mb-18 text-right pr-4 lg:pr-14">
           <span
             style={{ color: "#418CFF", fontWeight: "600" }}
             className="font-gilmer"
