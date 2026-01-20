@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "ScaleUp Conclave",
   description: "ScaleUp Conclave - 2026",
   icons: {
-    icon: "/favicon.ico", 
+    icon: "/favicon.png", 
   },
 };
 

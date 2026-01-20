@@ -757,15 +757,29 @@ function SuccessModal({
       {/* You’re In! */}
       Your Ticket Is Confirmed!
     </h2>
+    <a
+  href={`https://app.makemypass.com/scaleup-conclave-2026/view-ticket/${ticketID}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center mt-5 gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#4028C8] to-[#6B5CFF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+>
+  Download Ticket
+</a>
+
+    <p className="text-md mt-4" style={{ color: "#3E3E3E" }}>
+    Your spot is confirmed —A copy of your ticket has been sent to your registered WhatsApp number and email address.
+     Please check your inbox for confirmation and entry details.</p>
     <div className="flex justify-center gap-4 mt-6 flex-wrap">
   {/* Instagram */}
   <a
     href="https://www.instagram.com/scaleUp_Village"
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#4028C8] text-[#4028C8] hover:bg-[#4028C8] hover:text-white transition"
+    className="flex items-center gap-2 px-5 py-2 rounded-full border border-[#4028C8] text-[#4028C8] hover:bg-[#4230CA]
+    hover:text-white transition"
   >
-    <Instagram size={18} />
+    <Instagram size={18} color="#E4405F" />
+  
     Follow on Instagram
   </a>
 
@@ -795,18 +809,6 @@ function SuccessModal({
   </a>
 </div>
 
-    <p className="text-md mt-4" style={{ color: "#3E3E3E" }}>
-      Your spot is confirmed — Your event ticket has been sent to your email.
-    Please check your inbox for confirmation and entry details.</p>
-    
-    <a
-  href={`https://app.makemypass.com/scaleup-conclave-2026/view-ticket/${ticketID}`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center mt-5 gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#4028C8] to-[#6B5CFF] text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
->
-   View Ticket
-</a>
 
 
 

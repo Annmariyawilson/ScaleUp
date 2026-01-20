@@ -32,7 +32,7 @@ export default function DepositMarquee() {
                 onClick={() => setIsRegisterModalOpen(true)}
                 className="ml-1 underline font-semibold text-[#4028c8] hover:text-white-300 transition"
               >
-                Register Now!
+                Book Tickets Now!
               </button>
             </span>
             &nbsp;
@@ -48,7 +48,7 @@ export default function DepositMarquee() {
                 onClick={() => setIsRegisterModalOpen(true)}
                 className="ml-1 underline font-semibold text-[#4028c8] hover:text-white-300 transition"
               >
-                Register Now!
+                Book Tickets Now!
               </button>
             </span>
             &nbsp;
@@ -63,7 +63,7 @@ export default function DepositMarquee() {
                 onClick={() => setIsRegisterModalOpen(true)}
                 className="ml-1 underline font-semibold text-[#4028c8] hover:text-white-300 transition"
               >
-                Register Now!
+                Book Tickets Now!
 
               </button>
             </span>

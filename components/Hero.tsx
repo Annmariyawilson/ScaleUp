@@ -155,71 +155,66 @@ function Hero() {
         </div>
 
         {/* Bottom Section of Card */}
-        <div className="mt-18 md:mt-0 w-[581px] hidden lg:grid justify-center items-center">
-          <div className="md:flex hidden justify-center">
-            <img
-              src="/assets/images/img_icon2.svg"
-              alt="icons"
-              className="w-16 sm:w-10 md:w-[120px]"
-            />
-          </div>
-          <div className="flex mt-10">
-            <button
-              onClick={() => setIsRegisterModalOpen(true)}
-              className="w-[441px] xl:w-[481px]
-                flex items-center justify-between
-                bg-[#9df094] hover:bg-[#b0f5a8] 
-                text-black font-semibold text-xl md:text-[36px]
-                py-4 px-6 md:px-8
-                rounded-l-xl rounded-r-[50px]
-                transition-all duration-200 active:scale-95
-                group relative
-              "
-            >
-              <span className="mr-6 tracking-tight">Book Tickets Now</span>
+        <div className="mt-8 md:mt-0 w-[581px] hidden lg:flex flex-col items-center">
 
-              <img
-                src="/assets/images/arrow_circle.svg"
-                alt="arrow button"
-                className="w-12 md:w-18 absolute right-0"
-              />
-              {/* <ChevronRight 
-                strokeWidth={3} 
-                className="w-8 h-8 group-hover:translate-x-1 transition-transform" 
-              /> */}
-            </button>
+{/* Top Icon */}
+<div className="hidden md:flex justify-center mb-3">
+  <img
+    src="/assets/images/img_icon2.svg"
+    alt="icons"
+    className="mt-22 w-16 sm:w-10 md:w-[120px]"
+  />
+</div>
 
-          </div>
+{/* Register Button */}
+<div className="flex mb-2 mt-10">
+  <button
+    onClick={() => setIsRegisterModalOpen(true)}
+    className="w-[441px] xl:w-[481px]
+      flex items-center justify-between
+      bg-[#9df094] hover:bg-[#b0f5a8]
+      text-black font-semibold text-xl md:text-[36px]
+      py-4 px-6 md:px-8
+      rounded-l-xl rounded-r-[50px]
+      transition-all duration-200 active:scale-95
+      group relative"
+  >
+    <span className="mr-6 tracking-tight">Book Tickets Now</span>
+    <img
+      src="/assets/images/arrow_circle.svg"
+      alt="arrow button"
+      className="w-12 md:w-18 absolute right-0"
+    />
+  </button>
+</div>
 
-          <div className="hidden lg:flex flex-col md:flex-row items-center  gap-3">
-            <button
-              className="font-gilmer flex items-center gap-2 px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl h-[50px]"
-              style={{ backgroundColor: "#3F26DB", color: "#FFFFFF" }}
-            >
-              <img
-                src="/assets/images/calender.svg"
-                alt="calendar"
-                width={18}
-                height={18}
-              />
-              March 25th & 26th, 2026
-            </button>
-            <button
-              className="font-gilmer flex flex-col justify-center px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl h-[50px] leading-tight text-sm"
-              style={{
-                backgroundColor: "transparent",
-                border: "1px solid #4B4DFF",
-                color: "#FFFFFF",
-              }}
-            >
-              Shifa Convention Center
-              <span className="font-gilmer text-xs leading-tight">
-                Perinthalmanna
-              </span>
-            </button>
-          </div>
+{/* Date & Location */}
+<div className="hidden lg:flex flex-col md:flex-row items-center gap-2 mt-10">
+  <button
+    className="font-gilmer flex items-center gap-2 px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl h-[50px]"
+    style={{ backgroundColor: "#3F26DB", color: "#FFFFFF" }}
+  >
+    <img src="/assets/images/calender.svg" alt="calendar" width={18} height={18} />
+    March 25th & 26th, 2026
+  </button>
 
-        </div>
+  <button
+    className="font-gilmer flex flex-col justify-center px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl h-[50px] leading-tight text-sm"
+    style={{
+      backgroundColor: "transparent",
+      border: "1px solid #4B4DFF",
+      color: "#FFFFFF",
+    }}
+  >
+    Shifa Convention Center
+    <span className="font-gilmer text-xs leading-tight">
+      Perinthalmanna
+    </span>
+  </button>
+</div>
+
+</div>
+
         {/* Buttons for DESKTOP VIEW */}
 
 
