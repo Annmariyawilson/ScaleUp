@@ -31,6 +31,22 @@ type FormFields = {
   previousAttendance: string;
 };
 
+type TicketStep = "form" | "ticket" | "success";
+type TicketType = "general" | "vip";
+
+interface TicketTypeModalProps {
+  onClose: () => void;
+  setStep: React.Dispatch<React.SetStateAction<"form" | "ticket" | "success">>;
+  modalWidth: string;
+
+  selectedTicket: TicketType | null;
+  setSelectedTicket: React.Dispatch<React.SetStateAction<TicketType | null>>;
+
+  handleRegister: () => void;
+  loading: boolean;
+}
+
+
 export default function RegistrationModal({ isOpen, onClose }: RegistrationModalProps) {
   const [formData, setFormData] = useState<FormFields>({
     name: "",
@@ -52,6 +68,8 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   const [modalWidth, setModalWidth] = useState("50%");
   const [ticketID, setTicketID] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedTicket, setSelectedTicket] = useState<TicketType | null>(null);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -117,101 +135,174 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
   };
 
 
+  const payWithRazorpay = (orderData: any) => {
+    const options = {
+      key: orderData.client_id, // from backend
+      amount: orderData.amount,   // IN PAISE (e.g. 12100)
+      currency: orderData.currency,
+      name: "Scaleup Conclave 2025",
+      description: "VIP Ticket Payment",
+      image: "/rpay.webp",
+
+      order_id: orderData.order_id, // Razorpay order_id (CRITICAL)
+
+      handler: async function (response: {
+        razorpay_payment_id: string;
+        razorpay_order_id: string;
+      }) {
+        try {
+          // ✅ Verify payment
+          const verifyRes = await fetch(
+            "https://api.makemypass.com/makemypass/public-form/validate-payment/",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                order_id: response.razorpay_order_id,
+                payment_id: response.razorpay_payment_id,
+              }),
+            }
+          );
+
+          const verifyResult = await verifyRes.json();
+
+          if (verifyRes.ok && !verifyResult.hasError) {
+            toast.success("Payment successful 🎉");
+            setTicketID(verifyResult.response.event_register_id);
+            setStep("success");
+          } else {
+            toast.error("Payment verification failed");
+          }
+        } catch (err) {
+          toast.error("Payment verification error");
+        }
+      },
+
+      prefill: {
+        name: formData.name,
+        email: formData.email,
+        contact: formData.phone,
+      },
+
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
+
+
   //sadasivan's code started here.
   const handleRegister = async () => {
-    console.log("Register clicked — sending data:", formData);
-    setLoading(true);
-    try {
-      // 🧩 Simple front-end validation
-      if (
-        !formData.name ||
-        !formData.email ||
-        !formData.phone ||
-        !formData.district ||
-        !formData.organization ||
-        !formData.category
-      ) {
-        toast.error("Please fill in all required fields before submitting.");
-        return;
-      }
+  setLoading(true);
 
-      const payload = new FormData();
-      payload.append("district", formData.district);
-      payload.append("name", formData.name);
-      payload.append("phone", `${formData.countryCode}${formData.phone}`);
-      payload.append("email", formData.email);
-      payload.append("organization", formData.organization);
-      payload.append("category", formData.category);
-      payload.append(
-        "did_you_attend_the_previous_scaleup_conclave_",
-        formData.previousAttendance
-      );
-      payload.append(
-        "__tickets[]",
-        JSON.stringify({
-          ticket_id: "4afaaaaa-28fe-493c-82a6-e65f27551ded",
-          count: 1,
-          my_ticket: true,
-        })
-      );
-      payload.append(
-        "__utm",
-        JSON.stringify({
-          utm_source: null,
-          utm_medium: null,
-          utm_campaign: null,
-          utm_term: null,
-          utm_content: null,
-        })
-      );
-
-      console.log("Payload before send:", [...payload.entries()]);
-
-      const response = await fetch(
-        "https://api.makemypass.com/makemypass/public-form/f9290cc6-d840-4492-aefb-76f189df5f5e/submit/",
-        
-        {
-          method: "POST",
-          body: payload,
-        }
-      );
-      {/* <Toaster
-  position="top-center"
-  reverseOrder={false}
-  containerStyle={{ zIndex: 999999 }}
-/> */}
-
-      const result = await response.json();
-      console.log("📩 API parsed response:", result);
-
-      // ✅ SUCCESS
-      if (!result.hasError && response.ok) {
-        toast.success("Registration successful!");
-        setTicketID(result.response.event_register_id);
-        console.log("✅ Registrationsuccessfulskkkkkkkkkkkkkkkkkk:", result);
-        setStep("success");
-        return;
-      }
-
-      // ❌ BACKEND VALIDATION ERROR
-      if (result.hasError && result.message) {
-        // Example: { phone: ["The Phone Number is already registered"], email: ["The Email is already registered"] }
-        const firstKey = Object.keys(result.message)[0];
-        const firstError = result.message[firstKey]?.[0] || "Something went wrong";
-        toast.error(firstError);
-        console.error("❌ API Validation Error:", firstError);
-        return;
-      }
-    setLoading(false);
-
-
-      // ❌ Unknown error
-      throw new Error("Unknown API error");
-    } catch (error) {
-      console.error("❌ API Error:", error);
-      toast.error("Something went wrong while submitting the form. Please try again.");
+  try {
+    // ✅ Front-end validation
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.district ||
+      !formData.organization ||
+      !formData.category
+    ) {
+      toast.error("Please fill all required fields");
+      setLoading(false);
+      return;
     }
-  };
+
+    const payload = new FormData();
+    payload.append("district", formData.district);
+    payload.append("name", formData.name);
+    payload.append("phone", `${formData.countryCode}${formData.phone}`);
+    payload.append("email", formData.email);
+    payload.append("organization", formData.organization);
+    payload.append("category", formData.category);
+    payload.append(
+      "did_you_attend_the_previous_scaleup_conclave_",
+      formData.previousAttendance
+    );
+    const tickets= [
+        {
+            ticket_id: "4afaaaaa-28fe-493c-82a6-e65f27551ded",
+            count: 1,
+            my_ticket: true,
+        },
+        {
+            ticket_id: "a85d92b1-0e14-4975-9ac1-f8c5194a5ac5",
+            count: 1,
+            my_ticket: true,
+        },
+        {
+            ticket_id: "f3acf45a-f23e-41c8-9e1a-26417da55fdf",
+            count: 1,
+            my_ticket: true,
+        },
+        {
+            ticket_id: "062fbabb-6242-4adc-84c4-e6e20f9434c5",
+            count: 1,
+            my_ticket: true,
+        },
+    ]
+
+    if (selectedTicket === "general") {
+        payload.append("__tickets[]", JSON.stringify(tickets[0]));
+    } else if (selectedTicket === "vip") {
+        payload.append("__tickets[]", JSON.stringify(tickets[1]));
+    } 
+
+    payload.append(
+      "__tickets[]",
+      JSON.stringify({
+        ticket_id: selectedTicket === "vip"
+          ? "VIP_TICKET_ID"
+          : "FREE_TICKET_ID",
+        count: 1,
+        my_ticket: true,
+      })
+    );
+
+    const response = await fetch(
+      "https://api.makemypass.com/makemypass/public-form/f9290cc6-d840-4492-aefb-76f189df5f5e/submit/",
+      { method: "POST", body: payload }
+    );
+
+    const result = await response.json();
+    console.log("📩 API response:", result);
+
+    // ❌ Validation error
+    if (result.hasError) {
+      const key = Object.keys(result.message)[0];
+      toast.error(result.message[key][0]);
+      setLoading(false);
+      return;
+    }
+
+    // ✅ PAYMENT REQUIRED
+    if (result.response?.gateway) {
+      console.log("💳 Opening Razorpay");
+      payWithRazorpay(result.response);
+      setLoading(false);
+      return;
+    }
+
+    // ✅ FREE TICKET
+    toast.success("Registration successful 🎉");
+    setTicketID(result.response.event_register_id);
+    setStep("success");
+
+  } catch (error) {
+    toast.error("Something went wrong");
+    console.error(error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+
   //sadasivan's code end  here.
 
   if (!isOpen) return null;
@@ -270,9 +361,12 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               setStep={setStep}
               modalWidth={modalWidth}
               handleRegister={handleRegister}
-              loading = {loading}
+              selectedTicket={selectedTicket}
+              setSelectedTicket={setSelectedTicket}
+              loading={loading}
             />
           )}
+
 
           {/* {step === "ticket" && (
             <TicketTypeModal
@@ -552,20 +646,15 @@ function RegistrationForm({
 }
 
 /* ---------------- Ticket Selection Modal ---------------- */
-function TicketTypeModal({
+const TicketTypeModal: React.FC<TicketTypeModalProps> = ({
   onClose,
   setStep,
   modalWidth,
+  selectedTicket,
   handleRegister,
-  loading
-}: {
-  onClose: () => void;
-  setStep: React.Dispatch<React.SetStateAction<"form" | "ticket" | "success">>;
-  modalWidth: string;
-  handleRegister: () => void;
-  loading:boolean;
-}) {
-  const [selectedTicket, setSelectedTicket] = useState<"general" | "vip" | null>("general");
+  setSelectedTicket,
+  loading,
+}) => {
 
   const handleSelect = (type: "general" | "vip") => setSelectedTicket(type);
 
