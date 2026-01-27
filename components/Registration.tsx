@@ -160,14 +160,15 @@ export default function RegistrationModal({ isOpen, onClose }: RegistrationModal
               body: JSON.stringify({
                 order_id: response.razorpay_order_id,
                 payment_id: response.razorpay_payment_id,
+                "gateway":"Razorpay"
               }),
             }
           );
 
           const verifyResult = await verifyRes.json();
-
+            console.log("toasssssssssssssssst",verifyResult)
           if (verifyRes.ok && !verifyResult.hasError) {
-            toast.success("Payment successful 🎉");
+            toast.success("Payment successful ");
             setTicketID(verifyResult.response.event_register_id);
             setStep("success");
           } else {
