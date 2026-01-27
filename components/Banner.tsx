@@ -24,7 +24,11 @@ function Banner() {
               href="https://chat.whatsapp.com/DDdiTix9PosBX7PMLrB74U"
               target="_blank"
               rel="noopener noreferrer"
+<<<<<<< HEAD
               className="relative w-[220px] flex items-center gap-2 rounded-full shadow-md hover:shadow-lg transition px-4 py-2"
+=======
+              className="flex items-center gap-2 rounded-full shadow-md hover:shadow-lg transition px-4 py-2"
+>>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
               style={{
                 backgroundColor: "var(--color-button-bg)",
                 color: "var(--color-button-text)",
@@ -36,13 +40,21 @@ function Banner() {
                 alt="WhatsApp"
                 className="h-5 w-5"
               />
+<<<<<<< HEAD
               <span className="font-gilmer font-medium text-sm md:text-base">
+=======
+              <span className="font-medium text-sm md:text-base">
+>>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
                 Join Whatsapp
               </span>
               <img
                 src="/assets/images/arrow_icon_blue.svg"
                 alt="arrow"
+<<<<<<< HEAD
                 className="absolute right-1 h-[30px] w-15" 
+=======
+                className="h-5 w-5" 
+>>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
               />
             </a>
 
