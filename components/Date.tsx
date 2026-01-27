@@ -43,20 +43,11 @@ function DateSection() {
 
   return (
     <section
-<<<<<<< HEAD
       className="w-full px-4 sm:px-8 xl:px-12 pt-4 flex flex-col-reverse xl:flex-row items-start lg:items-center justify-between gap-6 xl:gap-10"
       style={{ backgroundColor: "var(--color-bg)" }}
     >
       {/* Stats (below on mobile, left on desktop) */}
       <div className="font-gilmer leading-[42px] md:leading-[85.97px] p-4 text-2xl sm:text-3xl md:text-[60px] text-left"
-=======
-      className="w-full px-4 sm:px-8 md:px-12 flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-6 md:gap-10"
-      style={{ backgroundColor: "var(--color-bg)" }}
-    >
-      {/* Stats (below on mobile, left on desktop) */}
-      <div
-        className="font-gilmer leading-[42px] md:leading-[85.97px] p-4 text-2xl sm:text-3xl md:text-[60px] text-left"
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
         style={{ color: "var(--color-text)", fontWeight: "600" }}
       >
         <p className="flex items-center justify-start gap-2 text-3xl md:text-[60px]">

@@ -1,5 +1,4 @@
 "use client";
-<<<<<<< HEAD
 import { ChevronRight } from "lucide-react";
 import React, { useState } from "react";
 
@@ -16,31 +15,13 @@ function Hero() {
           <span
             style={{ color: "#418CFF", fontWeight: "600" }}
             className="font-gilmer"
-=======
-import React from "react";
-
-function Hero() {
-  return (
-    <section className="w-full flex flex-col items-center px-2 py-2 relative overflow-hidden">
-      {/* --- RESPONSIVE HEADING SECTION --- */}
-      <div className="text-right md:text-center mb-8">
-        {/* First Line */}
-        <h1 className="text-xl md:text-[80px] mb-2 md:mb-18">
-          <span
-            style={{ color: "#418CFF", fontWeight: "600" }}
-            className="font-gilmer md:ml-80"
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
           >
             ScaleUp Conclave
           </span>
           <img
             src="/assets/images/v.svg"
             alt="icon"
-<<<<<<< HEAD
             className="inline-block w-5 h-5 md:w-[60px] md:h-[60px] pl-2"
-=======
-            className="inline-block w-5 h-5 md:w-[60px] md:h-[60px]"
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
           />
         </h1>
 
@@ -50,23 +31,14 @@ function Hero() {
           style={{ color: "#4028C8" }}
         >
           <span
-<<<<<<< HEAD
             className="font-gilmer !fw-400 sm:text-[56.63px] md:text-[100px] lg:text-[150px] xl:text-[190px]"
-=======
-            className="font-gilmer sm:text-6xl md:text-[140px] lg:text-[170px]"
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
             style={{ color: "#060832" }}
           >
             The
           </span>{" "}
           <span
-<<<<<<< HEAD
             className="font-gilmer tracking-tight sm:text-[56.63px] md:text-[100px] lg:text-[150px] xl:text-[190px]"
           // style={{ fontWeight: "700" }}
-=======
-            className="font-gilmer tracking-tight md:text-[140px] lg:text-[170px]"
-            style={{ fontWeight: "700" }}
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
           >
             Ai Summit
           </span>
@@ -76,20 +48,12 @@ function Hero() {
       {/* --- MAIN CARD --- */}
       <div
         className="w-full max-w-md md:max-w-full rounded-3xl md:rounded-4xl 
-<<<<<<< HEAD
              p-6 md:p-10 relative flex justify-between 
-=======
-             p-6 md:p-10 relative flex flex-col justify-between 
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
              mt-0 md:-mt-[76px] leading-normal md:leading-relaxed"
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
       >
         {/* Top Right Icon */}
-<<<<<<< HEAD
         <div className="absolute top-6 right-6 md:hidden">
-=======
-        <div className="absolute top-6 right-6">
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
           <img
             src="/assets/images/img_icon2.svg"
             alt="icons"
@@ -117,7 +81,6 @@ function Hero() {
             </span>
           </p>
 
-<<<<<<< HEAD
           <div className="flex lg:grid items-center gap-6 mt-10">
             {/* Updated Blue Circle Icon to match the Green Button Icon style */}
             <div className="flex items-center justify-center bg-[#3399FF] rounded-full w-[70px] h-[70px] md:w-[100px] md:h-[100px] shrink-0">
@@ -165,12 +128,6 @@ function Hero() {
           <div className="mt-8 flex flex-col md:flex-row items-start gap-3 lg:hidden">
             <button
               className="w-[193px] font-gilmer flex items-center rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl gap-2 px-4 py-2 text-sm text-white"
-=======
-          {/* Buttons for MOBILE/TABLET VIEW */}
-          <div className="mt-8 flex flex-col items-start gap-3 md:hidden">
-            <button
-              className="font-gilmer flex items-center rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl gap-2 px-4 py-2 text-sm text-white"
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
               style={{ backgroundColor: "#3F26DB" }}
             >
               <img
@@ -182,11 +139,7 @@ function Hero() {
               March 25th & 26th, 2026
             </button>
             <button
-<<<<<<< HEAD
               className="w-[193px] font-gilmer text-center px-4 py-2 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl text-sm text-white"
-=======
-              className="font-gilmer text-center px-4 py-2 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl text-sm text-white"
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
               style={{ border: "1px solid #4B4DFF" }}
             >
               Shifa Convention Center
@@ -196,7 +149,6 @@ function Hero() {
           </div>
         </div>
 
-<<<<<<< HEAD
         {/* Vertical white line */}
         <div className="mx-3 hidden lg:flex items-center">
           <span className="block h-full w-px bg-white opacity-70" />
@@ -271,54 +223,6 @@ function Hero() {
         isOpen={isRegisterModalOpen}
         onClose={() => setIsRegisterModalOpen(false)}
       />
-=======
-        {/* Bottom Section of Card */}
-        <div className="mt-18 md:mt-0">
-          {/* Arrow */}
-          <div className="flex justify-start">
-            <img
-              src="/assets/images/arrow_circle.svg"
-              alt="arrow button"
-              className="w-12 sm:w-14 md:w-[70px]"
-            />
-          </div>
-
-          {/* Main Subtitle */}
-          <h2 className="font-gilmer text-3xl sm:text-4xl md:text-7xl font-semibold mt-4 text-left">
-            Scale to <br /> Intelligence
-          </h2>
-        </div>
-
-        {/* Buttons for DESKTOP VIEW */}
-        <div className="hidden md:flex flex-col md:flex-row items-center md:absolute md:bottom-10 md:right-10 gap-3">
-          <button
-            className="font-gilmer flex items-center gap-2 px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-bl-3xl h-[50px]"
-            style={{ backgroundColor: "#3F26DB", color: "#FFFFFF" }}
-          >
-            <img
-              src="/assets/images/calender.svg"
-              alt="calendar"
-              width={18}
-              height={18}
-            />
-            March 25th & 26th, 2026
-          </button>
-          <button
-            className="font-gilmer flex flex-col justify-center px-4 py-3 rounded-tl-3xl rounded-tr-3xl rounded-br-3xl h-[50px] leading-tight text-sm"
-            style={{
-              backgroundColor: "transparent",
-              border: "1px solid #4B4DFF",
-              color: "#FFFFFF",
-            }}
-          >
-            Shifa Convention Center
-            <span className="font-gilmer text-xs leading-tight">
-              Perinthalmanna
-            </span>
-          </button>
-        </div>
-      </div>
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
     </section>
   );
 }

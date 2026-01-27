@@ -39,11 +39,7 @@ function Footer() {
   ];
 
   return (
-<<<<<<< HEAD
     <footer className="w-full mt-5 md:mt-24 px-1 md:px-2">
-=======
-    <footer className="w-full mt-24 px-1 md:px-2">
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
       <div
         className="relative mx-auto mb-6 max-w-10xl rounded-3xl overflow-hidden"
         style={{ backgroundColor: "#202020", color: "#FFFFFF" }}
@@ -87,7 +83,6 @@ function Footer() {
             {/* --- Left section (Scale to Intelligence + socials) --- */}
             <div className="order-2 md:order-1">
               <div className="flex items-center gap-3 mb-6">
-<<<<<<< HEAD
               <div className="flex items-center justify-center bg-[#3399FF] rounded-full w-[70px] h-[70px] md:w-[100px] md:h-[100px] shrink-0">
               <svg width="104" height="104" viewBox="0 0 104 104" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="51.8322" cy="51.8327" r="51.8322" />
@@ -95,14 +90,6 @@ function Footer() {
               </svg>
 
             </div>
-=======
-                <img
-                  src="/assets/images/arrow_circle.svg"
-                  alt="Scale to Intelligence icon"
-                  width={60}
-                  height={60}
-                />
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
                 <h2
                   className="font-gilmer text-2xl md:text-4xl font-semibold"
                   style={{ color: "#FFFFFF" }}

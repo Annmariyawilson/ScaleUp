@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-<<<<<<< HEAD
 import Script from "next/script";
-=======
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
 
 export const metadata: Metadata = {
   title: "ScaleUp Conclave",
@@ -20,7 +17,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-<<<<<<< HEAD
       <body>
         {/* Razorpay Checkout Script */}
         <Script
@@ -29,9 +25,6 @@ export default function RootLayout({
         />
         {children}
       </body>
-=======
-      <body>{children}</body>
->>>>>>> 08950c4bb45ababec07a92bd45b010adda4c4541
     </html>
   );
 }
